@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越後湯澤滑雪之旅 | Echigo Yuzawa Ski Expedition 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-gold: #fbbf24;
+            --snow-white: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Snowflake Animation */
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-10vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10vh;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.5em;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-date {
+            font-size: 1.8rem;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            background: rgba(251, 191, 36, 0.9);
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .mountain-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path d="M0,200 L200,100 L400,150 L600,50 L800,120 L1000,80 L1200,140 L1200,300 L0,300 Z" fill="rgba(255,255,255,0.1)"/><path d="M0,240 L150,180 L350,200 L550,140 L750,180 L950,160 L1200,190 L1200,300 L0,300 Z" fill="rgba(255,255,255,0.15)"/></svg>') no-repeat bottom center;
+            background-size: cover;
+            opacity: 0.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .day-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Day Detail Card */
+        .day-detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid var(--secondary-blue);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .day-header-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            line-height: 1;
+        }
+
+        .day-header-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-header-info p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Resort Info Card */
+        .resort-info {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--accent-gold);
+        }
+
+        .resort-info h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .resort-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .resort-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resort-stat-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .resort-stat-value {
+            color: var(--text-dark);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--secondary-blue), var(--accent-gold));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.3rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--accent-gold);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--secondary-blue);
+        }
+
+        .timeline-time {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .timeline-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-description li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Resort Image */
+        .resort-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .difficulty-stars {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Info Cards Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .info-card-content {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .info-card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card-content li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .info-card-content li:last-child {
+            border-bottom: none;
+        }
+
+        /* Food Cards */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .food-card-header {
+            background: linear-gradient(135deg, var(--accent-gold), #f59e0b);
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .food-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .food-card-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .food-card-body {
+            padding: 1.5rem;
+        }
+
+        .food-card-body ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .food-card-body li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .food-card-body li::before {
+            content: '🍴';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border-left: 8px solid var(--accent-gold);
+        }
+
+        .tips-section h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips-section li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .tips-section li::before {
+            content: '💡';
+            position: absolute;
+            left: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Kuse Branding */
+        .kuse-branding {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .kuse-branding:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-date {
+                font-size: 1.2rem;
+                padding: 0.75rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .day-detail-card {
+                padding: 1.5rem;
+            }
+
+            .day-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .resort-image {
+                height: 250px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .snowflake {
+                display: none;
+            }
+
+            .hero-section {
+                min-height: auto;
+                page-break-after: always;
+            }
+
+            .day-detail-card {
+                page-break-inside: avoid;
+            }
+
+            .comparison-table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowflakes -->
+    <div class="snowflake" style="left: 10%; animation-duration: 10s; animation-delay: 0s;">❄</div>
+    <div class="snowflake" style="left: 20%; animation-duration: 12s; animation-delay: 2s;">❅</div>
+    <div class="snowflake" style="left: 30%; animation-duration: 15s; animation-delay: 4s;">❄</div>
+    <div class="snowflake" style="left: 40%; animation-duration: 11s; animation-delay: 1s;">❅</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 13s; animation-delay: 3s;">❄</div>
+    <div class="snowflake" style="left: 60%; animation-duration: 14s; animation-delay: 5s;">❅</div>
+    <div class="snowflake" style="left: 70%; animation-duration: 10s; animation-delay: 2s;">❄</div>
+    <div class="snowflake" style="left: 80%; animation-duration: 12s; animation-delay: 4s;">❅</div>
+    <div class="snowflake" style="left: 90%; animation-duration: 11s; animation-delay: 1s;">❄</div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="mountain-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">越後湯澤滑雪之旅</h1>
+            <p class="hero-subtitle">ECHIGO YUZAWA SKI EXPEDITION</p>
+            <div class="hero-date">2025年1月29日 - 2月4日</div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <div class="container">
+        <h2 class="section-title">行程概覽</h2>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="day-number">DAY 1</div>
+                <div class="day-date">1月29日（三）</div>
+                <div class="day-title">成田機場 → 越後湯澤</div>
+                <div class="day-subtitle">旅程啟動，前進雪國</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 2</div>
+                <div class="day-date">1月30日（四）</div>
+                <div class="day-title">岩原滑雪場</div>
+                <div class="day-subtitle">暖身校準日，超寬緩坡練習</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 3</div>
+                <div class="day-date">1月31日（五）</div>
+                <div class="day-title">神樂滑雪場</div>
+                <div class="day-subtitle">高海拔粉雪挑戰，田代湖絕景</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 4</div>
+                <div class="day-date">2月1日（六）</div>
+                <div class="day-title">舞子滑雪場</div>
+                <div class="day-subtitle">6公里長距離巡航 + 溫泉療癒</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 5</div>
+                <div class="day-date">2月2日（日）</div>
+                <div class="day-title">石打丸山</div>
+                <div class="day-subtitle">日夜交替作戰，景觀餐廳饗宴</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 6</div>
+                <div class="day-date">2月3日（一）</div>
+                <div class="day-title">返回東京</div>
+                <div class="day-subtitle">裝備歸還，都市重新部署</div>
+            </div>
+
+            <div class="overview-card">
+                <div class="day-number">DAY 7</div>
+                <div class="day-date">2月4日（二）</div>
+                <div class="day-title">羽田機場離境</div>
+                <div class="day-subtitle">任務完成，帶著美好回憶返航</div>
+            </div>
+        </div>
+
+        <!-- Day 1 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">01</div>
+                <div class="day-header-info">
+                    <h3>成田出擊 → 越後湯澤</h3>
+                    <p>1月29日（三）｜旅程啟動，前進雪國</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">抵達成田國際機場</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理入境手續</li>
+                                <li>使用黑貓宅急便（ヤマト運輸）寄送行李至東京飯店</li>
+                                <li>費用：¥2,000-3,000/件，2-3日送達</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">14:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘京成Skyliner → JR上越新幹線</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Skyliner至京成上野站（41分鐘）</li>
+                                <li>轉乘上越新幹線至越後湯澤（80分鐘）</li>
+                                <li>自由席費用：約¥5,000-6,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">抵達越後湯澤車站</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理飯店入住手續</li>
+                                <li>放置隨身行李，稍作休息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">雪具租賃</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>前往當地租賃店（如Boo Sports）</li>
+                                <li>試穿雪板、雪鞋、雪杖等裝備</li>
+                                <li>確認隔天送達岩原滑雪場的接送服務</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">晚餐 - 中野屋</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>品嚐著名的片木蕎麥麵（へぎそば）</li>
+                                <li>必點：舞茸天婦羅</li>
+                                <li>體驗道地越後美食文化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">02</div>
+                <div class="day-header-info">
+                    <h3>岩原滑雪場 - 暖身校準</h3>
+                    <p>1月30日（四）｜技術重置，緩坡練習</p>
+                </div>
+            </div>
+
+            <div class="resort-info">
+                <h4>🏔️ 雪場資訊</h4>
+                <div class="resort-stats">
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">標高：</span>
+                        <span class="resort-stat-value">985m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">雪道數：</span>
+                        <span class="resort-stat-value">20條</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">最長滑走：</span>
+                        <span class="resort-stat-value">4,000m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">難度分布：</span>
+                        <span class="resort-stat-value">40%初級 / 40%中級 / 20%高級</span>
+                    </div>
+                </div>
+                <p><strong>特色亮點：</strong>超寬緩坡（最寬200公尺以上）、日本最大雪上樂園、夜間滑雪、初學者天堂</p>
+            </div>
+
+            <img src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1728981639/d6tmq4m7we1a7bmtdxws.jpg" alt="岩原滑雪場" class="resort-image">
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">08:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘免費接駁車</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>從越後湯澤車站出發</li>
+                                <li>車程約10分鐘</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">開始滑雪 - 技術校準模式</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>在寬闊平緩雪道進行姿勢重置</li>
+                                <li>練習鋼邊控制技術</li>
+                                <li>適應雪況與裝備</li>
+                                <li>逐步找回滑雪節奏</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">返回越後湯澤</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>搭乘接駁車回車站</li>
+                                <li>回飯店稍作休息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">ぽんしゅ館 - 新潟清酒博物館</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>¥500兌換5枚代幣品嚐100種日本酒</li>
+                                <li>必買：爆彈飯糰（¥400-500）</li>
+                                <li>體驗新潟豐富的清酒文化</li>
+                                <li>選購心儀的地酒作為伴手禮</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">03</div>
+                <div class="day-header-info">
+                    <h3>神樂滑雪場 - 高海拔深度突擊</h3>
+                    <p>1月31日（五）｜粉雪天堂，田代湖絕景</p>
+                </div>
+            </div>
+
+            <div class="resort-info">
+                <h4>🏔️ 雪場資訊</h4>
+                <div class="resort-stats">
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">標高：</span>
+                        <span class="resort-stat-value">1,800-1,845m（越後湯澤區最高）</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">區域：</span>
+                        <span class="resort-stat-value">神樂、田代、三俣三區聯通</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">最長滑走：</span>
+                        <span class="resort-stat-value">6,000m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">垂直落差：</span>
+                        <span class="resort-stat-value">1,225m</span>
+                    </div>
+                </div>
+                <p><strong>特色亮點：</strong>高海拔優質粉雪、乾爽輕盈雪質、未壓雪樹林區、田代湖絕美景致、滑雪季節至5月</p>
+            </div>
+
+            <img src="https://res.klook.com/image/upload/q_85/c_fill,w_750/v1729592838/ejukjuv3enbhjwvtbjms.jpg" alt="神樂滑雪場" class="resort-image">
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">07:40</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘急行巴士前往三俣</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>費用：¥400 + 裝備費¥100</li>
+                                <li>⚠️ 僅收現金，請提前準備</li>
+                                <li>車程約30分鐘</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">08:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘大型箱型纜車</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>容納121人的大型纜車</li>
+                                <li>直達神樂區域</li>
+                                <li>沿途欣賞壯麗山景</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00-12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">神樂區域探索</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>享受高海拔優質粉雪</li>
+                                <li>挑戰未壓雪樹林區</li>
+                                <li>體驗乾爽輕盈的雪質</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">橫向推進至田代區</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>俯瞰田代湖絕美高山景致</li>
+                                <li>拍攝令人屏息的雪景照片</li>
+                                <li>在田代區域繼續滑雪探索</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘回程巴士</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>返回越後湯澤車站</li>
+                                <li>回飯店休息整理</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">晚餐 - 日式燒肉</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>推薦：Omoide或Taiko En</li>
+                                <li>⚠️ 需提前預約</li>
+                                <li>享用優質和牛燒肉</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">04</div>
+                <div class="day-header-info">
+                    <h3>舞子滑雪場 - 長距離耐力戰</h3>
+                    <p>2月1日（六）｜6公里巡航 + 溫泉療癒</p>
+                </div>
+            </div>
+
+            <div class="resort-info">
+                <h4>🏔️ 雪場資訊</h4>
+                <div class="resort-stats">
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">標高：</span>
+                        <span class="resort-stat-value">920m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">雪道數：</span>
+                        <span class="resort-stat-value">26條</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">最長滑走：</span>
+                        <span class="resort-stat-value">6,000m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">距離車站：</span>
+                        <span class="resort-stat-value">20分鐘</span>
+                    </div>
+                </div>
+                <p><strong>特色亮點：</strong>超長6km連續下坡、奧添地鉢狀地形粉雪、初學者友善長雪道、附設溫泉設施</p>
+            </div>
+
+            <img src="https://static.gltjp.com/glt/data/directory/16000/15194/20231212_201015_f0f68665_w640.webp" alt="舞子滑雪場" class="resort-image">
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">08:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">搭乘免費接駁車</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>從越後湯澤車站出發</li>
+                                <li>車程約20分鐘</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">奧添地區域 - 晨間粉雪</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>在鉢狀地形享受新雪</li>
+                                <li>體驗未壓雪區域的挑戰</li>
+                                <li>捕捉晨光中的粉雪瞬間</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">6,000公尺連續下坡巡航</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>全場最長連續下坡體驗</li>
+                                <li>測試耐力與技術穩定性</li>
+                                <li>享受長距離滑行的快感</li>
+                                <li>適合初學者的友善長雪道</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">舞子高原飯店溫泉</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>入浴費約¥1,000-1,500</li>
+                                <li>熱療舒緩肌肉疲勞</li>
+                                <li>戶外按摩池、室內浴場</li>
+                                <li>出口附近「街之湯」公共浴場</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:20 / 17:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">接駁車返回</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>兩班次可選擇</li>
+                                <li>回飯店休息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">05</div>
+                <div class="day-header-info">
+                    <h3>石打丸山 - 日夜交替作戰</h3>
+                    <p>2月2日（日）｜景觀餐廳 + 夜滑體驗</p>
+                </div>
+            </div>
+
+            <div class="resort-info">
+                <h4>🏔️ 雪場資訊</h4>
+                <div class="resort-stats">
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">標高：</span>
+                        <span class="resort-stat-value">920m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">雪道數：</span>
+                        <span class="resort-stat-value">23條</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">最長滑走：</span>
+                        <span class="resort-stat-value">4,000m</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">營業時間：</span>
+                        <span class="resort-stat-value">8:00-20:30（夜滑至20:00）</span>
+                    </div>
+                </div>
+                <p><strong>特色亮點：</strong>強大夜間照明系統、高速Carving天堂、The Veranda三層景觀餐廳、透明圓頂帳篷私人用餐</p>
+            </div>
+
+            <img src="https://static.gltjp.com/glt/data/directory/16000/15229/20231216_145248_a3a37dd0_w640.webp" alt="石打丸山" class="resort-image">
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">延遲啟動 - 肌肉修復優先</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>購買8.5小時彈性計時票</li>
+                                <li>讓身體充分休息恢復</li>
+                                <li>準備日夜連續作戰</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Sunrise Express → 山頂巡航</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>搭乘高速纜車直達山頂</li>
+                                <li>享受白天的優質雪況</li>
+                                <li>練習高速Carving技術</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">The Veranda 觀景露台午餐</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>位於Sunrise Express纜車中段的三層景觀餐廳</li>
+                                <li>2樓咖啡廳 + 戶外露台</li>
+                                <li>3樓觀景台 - 俯瞰魚沼平原、越後三山、燈光雪道</li>
+                                <li>推薦：荷蘭鐵鍋鬆餅、和牛燒肉、糖醋炸雞、越光米飯碗</li>
+                                <li>透明圓頂帳篷私人用餐體驗（12月-4月）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">夜滑作戰開始</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>強大照明系統啟動</li>
+                                <li>高速刻滑完美條件</li>
+                                <li>體驗夜間滑雪的獨特魅力</li>
+                                <li>⚠️ 溫度可能低至-10℃，注意保暖</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">結束夜滑返回</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>完成日夜雙重體驗</li>
+                                <li>搭乘接駁車返回越後湯澤</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 6 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">06</div>
+                <div class="day-header-info">
+                    <h3>撤退 → 東京都市重新部署</h3>
+                    <p>2月3日（一）｜裝備歸還，前進東京</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">裝備歸還 & 最後採購</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>歸還租賃的滑雪裝備</li>
+                                <li>購買伴手禮（清酒、米果、地方特產）</li>
+                                <li>可前往「山の湯」公共溫泉（約¥500）</li>
+                                <li>最後一次享受越後湯澤的溫泉文化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">上越新幹線 → 東京車站</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>車程約80分鐘</li>
+                                <li>自由席費用：¥5,000-6,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">14:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">轉乘至濱松町/品川</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>依飯店位置選擇轉乘站</li>
+                                <li>濱松町：方便搭乘東京單軌電車至羽田</li>
+                                <li>品川：方便搭乘京急線至羽田</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">入住都市基地飯店</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理入住手續</li>
+                                <li>與宅急便寄送的行李會合</li>
+                                <li>整理行李，準備隔天離境</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">07</div>
+                <div class="day-header-info">
+                    <h3>羽田機場 - 任務完成</h3>
+                    <p>2月4日（二）｜帶著美好回憶返航</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">08:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">飯店Check-out</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理退房手續</li>
+                                <li>確認所有行李物品</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">前往羽田機場第3航廈</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li><strong>選項1 - 濱松町：</strong>東京單軌電車（19分鐘）</li>
+                                <li><strong>選項2 - 品川：</strong>京急線（15-20分鐘）</li>
+                                <li>兩種方式皆快速便捷</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">09:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">抵達羽田第3航廈</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理登機手續</li>
+                                <li>托運行李</li>
+                                <li>通過安檢與出境審查</li>
+                                <li>免稅店最後採購</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">12:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">航班起飛</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>帶著滿滿的雪國回憶</li>
+                                <li>期待下次的滑雪之旅</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <h2 class="section-title">四大雪場比較</h2>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>雪場</th>
+                        <th>標高</th>
+                        <th>最長滑走</th>
+                        <th>難度</th>
+                        <th>特色亮點</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>岩原</strong></td>
+                        <td>985m</td>
+                        <td>4,000m</td>
+                        <td><span class="difficulty-stars">★☆☆☆</span></td>
+                        <td>超寬緩坡、初學者天堂、暖身首選</td>
+                    </tr>
+                    <tr>
+                        <td><strong>神樂</strong></td>
+                        <td>2,029m</td>
+                        <td>6,000m</td>
+                        <td><span class="difficulty-stars">★★★★</span></td>
+                        <td>高海拔粉雪、田代湖絕景、未壓雪區</td>
+                    </tr>
+                    <tr>
+                        <td><strong>舞子</strong></td>
+                        <td>920m</td>
+                        <td>6,000m</td>
+                        <td><span class="difficulty-stars">★★★☆</span></td>
+                        <td>超長連續下坡、奧添地新雪、溫泉設施</td>
+                    </tr>
+                    <tr>
+                        <td><strong>石打丸山</strong></td>
+                        <td>920m</td>
+                        <td>4,000m</td>
+                        <td><span class="difficulty-stars">★★★☆</span></td>
+                        <td>夜滑No.1、The Veranda景觀餐廳、Carving天堂</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Info Cards -->
+        <h2 class="section-title">實用資訊速查</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-card-icon">💴</div>
+                <div class="info-card-title">現金準備</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>神樂巴士僅收現金（¥500/趟）</li>
+                        <li>建議攜帶至少¥30,000現金備用</li>
+                        <li>部分小店與溫泉設施不接受信用卡</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">🎿</div>
+                <div class="info-card-title">裝備租賃</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>當地租賃店提供接送服務</li>
+                        <li>可每日送達不同雪場</li>
+                        <li>建議提前預約確保裝備齊全</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">📦</div>
+                <div class="info-card-title">宅急便</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>成田→東京市區：¥2,000-3,000/件</li>
+                        <li>2-3日送達</li>
+                        <li>減輕旅途行李負擔</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">♨️</div>
+                <div class="info-card-title">溫泉資訊</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>舞子高原溫泉：¥1,000-1,500</li>
+                        <li>山の湯公共溫泉：¥500左右</li>
+                        <li>建議連續滑雪第三天使用溫泉恢復</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">🚄</div>
+                <div class="info-card-title">交通資訊</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>越後湯澤↔東京：約80分鐘</li>
+                        <li>自由席：¥5,000-6,000</li>
+                        <li>建議購買JR Pass節省費用</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">✈️</div>
+                <div class="info-card-title">機場交通</div>
+                <div class="info-card-content">
+                    <ul>
+                        <li>濱松町→羽田T3：東京單軌19分</li>
+                        <li>品川→羽田T3：京急15-20分</li>
+                        <li>兩種方式皆快速便捷</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Section -->
+        <h2 class="section-title">美食推薦</h2>
+        <div class="food-grid">
+            <div class="food-card">
+                <div class="food-card-header">
+                    <div class="food-card-title">中野屋</div>
+                    <div class="food-card-subtitle">Nakajima</div>
+                </div>
+                <div class="food-card-body">
+                    <ul>
+                        <li>片木蕎麥麵（へぎそば）</li>
+                        <li>舞茸天婦羅</li>
+                        <li>道地越後美食</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-card-header">
+                    <div class="food-card-title">ぽんしゅ館</div>
+                    <div class="food-card-subtitle">Ponshu-kan</div>
+                </div>
+                <div class="food-card-body">
+                    <ul>
+                        <li>清酒品鑑（100種日本酒）</li>
+                        <li>爆彈飯糰（¥400-500）</li>
+                        <li>¥500兌換5枚代幣</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-card-header">
+                    <div class="food-card-title">The Veranda</div>
+                    <div class="food-card-subtitle">景觀餐廳</div>
+                </div>
+                <div class="food-card-body">
+                    <ul>
+                        <li>荷蘭鐵鍋鬆餅</li>
+                        <li>和牛燒肉</li>
+                        <li>越光米飯碗</li>
+                        <li>透明圓頂帳篷用餐</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <div class="food-card-header">
+                    <div class="food-card-title">燒肉店</div>
+                    <div class="food-card-subtitle">Yakiniku</div>
+                </div>
+                <div class="food-card-body">
+                    <ul>
+                        <li>Omoide（思い出）</li>
+                        <li>Taiko En（太鼓苑）</li>
+                        <li>⚠️ 需提前預約</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3>旅行小貼士</h3>
+            <ul>
+                <li>神樂是四座雪場中海拔最高、粉雪品質最好的，務必體驗</li>
+                <li>神樂巴士僅收現金（¥500/趟），請提前準備足夠現金</li>
+                <li>夜滑溫度可能低至-10℃，需穿著足夠的保暖層</li>
+                <li>連續滑雪第三天（Day 4）建議使用溫泉恢復體力</li>
+                <li>岩原雪場適合暖身和技術校準，寬闊平緩的雪道非常友善</li>
+                <li>石打丸山的The Veranda餐廳營業至20:30，可享受夜間觀景用餐</li>
+                <li>宅急便建議在成田機場直接寄送至東京飯店，減輕行李負擔</li>
+                <li>ぽんしゅ館的清酒品鑑非常值得體驗，記得適量飲酒</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h3>祝旅途愉快！享受雪國的魅力</h3>
+        <p>Have an amazing snow adventure!</p>
+        <a href="https://kuse.ai" target="_blank" class="kuse-branding">
+            <span>made with</span>
+            <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+        </a>
+    </div>
+
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
