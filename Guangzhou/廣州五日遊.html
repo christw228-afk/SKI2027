@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廣州五日秋冬滑雪美食之旅 | 花間堂悅雪 × 嶺南古鎮 × 生猛海鮮大排檔</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #2563eb;
+            --autumn-amber: #d97706;
+            --maple-red: #b91c1c;
+            --ginkgo-gold: #f59e0b;
+            --accent-gold: #fbbf24;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 30%, #f8fafc 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Autumn Ginkgo & Maple Leaf Falling Animation */
+        @keyframes autumnFall {
+            0% {
+                transform: translateY(-10vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.92;
+            }
+            50% {
+                transform: translateY(50vh) translateX(65px) rotate(190deg);
+            }
+            90% {
+                opacity: 0.92;
+            }
+            100% {
+                transform: translateY(112vh) translateX(-35px) rotate(380deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes autumnFallReverse {
+            0% {
+                transform: translateY(-10vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.92;
+            }
+            50% {
+                transform: translateY(50vh) translateX(-60px) rotate(-180deg);
+            }
+            90% {
+                opacity: 0.92;
+            }
+            100% {
+                transform: translateY(112vh) translateX(40px) rotate(-360deg);
+                opacity: 0;
+            }
+        }
+
+        .autumn-leaf {
+            position: fixed;
+            top: -10vh;
+            z-index: 50;
+            pointer-events: none;
+            filter: drop-shadow(0 3px 5px rgba(146, 64, 14, 0.22));
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 86vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 42%, #9a3412 80%, #d97706 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 2.5rem 2rem;
+            max-width: 1000px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(253, 224, 71, 0.45);
+            padding: 0.5rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.96rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #fef3c7;
+        }
+
+        .hero-title {
+            font-size: 3.45rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35);
+            letter-spacing: 2px;
+            line-height: 1.25;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            opacity: 0.94;
+        }
+
+        .hero-date {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #78350f;
+            padding: 0.9rem 2.3rem;
+            background: linear-gradient(135deg, #fde047, #f59e0b);
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+        }
+
+        .mountain-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 36%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300"><path d="M0,200 L200,100 L400,150 L600,50 L800,120 L1000,80 L1200,140 L1200,300 L0,300 Z" fill="rgba(255,255,255,0.09)"/><path d="M0,240 L150,180 L350,200 L550,140 L750,180 L950,160 L1200,190 L1200,300 L0,300 Z" fill="rgba(255,255,255,0.14)"/></svg>') no-repeat bottom center;
+            background-size: cover;
+            opacity: 0.75;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 2.8rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--maple-red), var(--ginkgo-gold), transparent);
+        }
+
+        /* Strategy Banner */
+        .strategy-banner {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-radius: 20px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 3.5rem;
+            border-left: 8px solid var(--autumn-amber);
+            box-shadow: 0 8px 20px rgba(180, 83, 9, 0.1);
+        }
+
+        .strategy-banner h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 0.9rem;
+        }
+
+        .strategy-banner p {
+            color: var(--text-dark);
+            line-height: 1.75;
+            font-size: 1rem;
+        }
+
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--ginkgo-gold);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(180, 83, 9, 0.15);
+        }
+
+        .day-number {
+            font-size: 2.35rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            color: var(--autumn-amber);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .day-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .day-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        /* Day Detail Card */
+        .day-detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.8rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-top: 6px solid var(--primary-blue);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .day-header-number {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            line-height: 1;
+        }
+
+        .day-header-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .day-header-info p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        /* Highlight Info Card */
+        .resort-info {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--ginkgo-gold);
+        }
+
+        .resort-info h4 {
+            font-size: 1.32rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .resort-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .resort-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .resort-stat-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            white-space: nowrap;
+        }
+
+        .resort-stat-value {
+            color: var(--text-dark);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2.8rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.7rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--secondary-blue), var(--ginkgo-gold), var(--maple-red));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.8rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.35rem;
+            width: 0.95rem;
+            height: 0.95rem;
+            background: var(--ginkgo-gold);
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--secondary-blue);
+        }
+
+        .timeline-time {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 0.45rem;
+        }
+
+        .timeline-content {
+            background: var(--bg-light);
+            padding: 1.4rem 1.6rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--ginkgo-gold);
+        }
+
+        .timeline-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .transit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #e0e7ff;
+            color: #1e3a8a;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid #c7d2fe;
+        }
+
+        .fare-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid #fde68a;
+        }
+
+        .timeline-description {
+            color: var(--text-dark);
+            line-height: 1.68;
+            font-size: 0.96rem;
+        }
+
+        .timeline-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-description li {
+            padding-left: 1.4rem;
+            position: relative;
+            margin-bottom: 0.38rem;
+        }
+
+        .timeline-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--autumn-amber);
+            font-weight: 700;
+        }
+
+        /* Comparison / Transit Table */
+        .comparison-table {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 4rem;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 740px;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #1e3a8a, #9a3412);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 1.2rem 1.4rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .comparison-table td {
+            padding: 1.15rem 1.4rem;
+            border-bottom: 1px solid var(--bg-light);
+            font-size: 0.95rem;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #fffbeb;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Route Split Box */
+        .route-split {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .route-box {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+
+        .route-box.recommended {
+            border-color: var(--ginkgo-gold);
+            background: #fffbeb;
+        }
+
+        .route-box h5 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .route-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .route-box li {
+            padding-left: 1.3rem;
+            position: relative;
+            margin-bottom: 0.45rem;
+            font-size: 0.94rem;
+            line-height: 1.6;
+        }
+
+        .route-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--autumn-amber);
+            font-weight: 700;
+        }
+
+        /* Illustrated Ancient Town Cards (Appendix) */
+        .town-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .town-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+            border: 1px solid #f3f4f6;
+            transition: transform 0.3s ease;
+        }
+
+        .town-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .town-visual {
+            height: 210px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .town-visual svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .town-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(30, 58, 138, 0.88);
+            color: #fef3c7;
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        .town-body {
+            padding: 1.8rem;
+        }
+
+        .town-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.35rem;
+        }
+
+        .town-meta {
+            font-size: 0.88rem;
+            color: var(--autumn-amber);
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
+        .town-desc {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .town-highlights {
+            background: #fffbeb;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Appendix Restaurant Directory Cards */
+        .appendix-category-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #9a3412;
+            margin: 2.5rem 0 1.4rem;
+            padding-left: 1rem;
+            border-left: 6px solid var(--maple-red);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .rest-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            border: 1px solid #fde68a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .rest-header {
+            padding: 1.3rem 1.6rem;
+            color: white;
+        }
+
+        .rest-header.dimsum {
+            background: linear-gradient(135deg, #b91c1c, #d97706);
+        }
+
+        .rest-header.seafood {
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+        }
+
+        .rest-header.shunde {
+            background: linear-gradient(135deg, #065f46, #059669);
+        }
+
+        .rest-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .rest-sub {
+            font-size: 0.86rem;
+            opacity: 0.92;
+        }
+
+        .rest-body {
+            padding: 1.4rem 1.6rem;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+
+        .rest-info-row {
+            margin-bottom: 0.55rem;
+        }
+
+        .rest-info-label {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .rest-must-eat {
+            margin-top: 0.85rem;
+            padding-top: 0.85rem;
+            border-top: 1px dashed #e5e7eb;
+            color: #92400e;
+            font-weight: 500;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 2.8rem;
+            margin-top: 3rem;
+            border-left: 8px solid var(--maple-red);
+        }
+
+        .tips-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #78350f;
+            margin-bottom: 1.5rem;
+        }
+
+        .tips-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tips-section li {
+            padding: 0.95rem 1.2rem;
+            margin-bottom: 0.9rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            position: relative;
+            padding-left: 3rem;
+            font-size: 0.96rem;
+            line-height: 1.65;
+        }
+
+        .tips-section li::before {
+            content: '🍁';
+            position: absolute;
+            left: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1e3a8a, #7c2d12);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer h3 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .footer p {
+            font-size: 1.08rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 0.98rem; letter-spacing: 1.5px; }
+            .hero-date { font-size: 1.1rem; padding: 0.75rem 1.4rem; }
+            .section-title { font-size: 1.85rem; }
+            .day-detail-card { padding: 1.6rem; }
+            .day-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .timeline { padding-left: 2rem; }
+            .town-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; }
+            .autumn-leaf { display: none; }
+            .hero-section { min-height: auto; padding: 3rem 1rem; page-break-after: always; }
+            .day-detail-card { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Falling Ginkgo & Maple Leaves (SVG Autumn Icons) -->
+    <!-- Ginkgo Leaves -->
+    <div class="autumn-leaf" style="left: 6%; animation: autumnFall 12s linear infinite 0s;">
+        <svg width="28" height="28" viewBox="0 0 64 64"><path d="M32 54 C32 42, 31 36, 30 30 C18 32, 8 24, 10 14 C16 17, 22 15, 25 10 C28 15, 31 15, 32 9 C33 15, 36 15, 39 10 C42 15, 48 17, 54 14 C56 24, 46 32, 34 30 C33 36, 33 44, 34 54 Z" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 24%; animation: autumnFallReverse 15s linear infinite 2.5s;">
+        <svg width="24" height="24" viewBox="0 0 64 64"><path d="M32 54 C32 42, 31 36, 30 30 C18 32, 8 24, 10 14 C16 17, 22 15, 25 10 C28 15, 31 15, 32 9 C33 15, 36 15, 39 10 C42 15, 48 17, 54 14 C56 24, 46 32, 34 30 C33 36, 33 44, 34 54 Z" fill="#fbbf24" stroke="#b45309" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 52%; animation: autumnFall 13s linear infinite 4s;">
+        <svg width="30" height="30" viewBox="0 0 64 64"><path d="M32 54 C32 42, 31 36, 30 30 C18 32, 8 24, 10 14 C16 17, 22 15, 25 10 C28 15, 31 15, 32 9 C33 15, 36 15, 39 10 C42 15, 48 17, 54 14 C56 24, 46 32, 34 30 C33 36, 33 44, 34 54 Z" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 78%; animation: autumnFallReverse 14s linear infinite 1.2s;">
+        <svg width="26" height="26" viewBox="0 0 64 64"><path d="M32 54 C32 42, 31 36, 30 30 C18 32, 8 24, 10 14 C16 17, 22 15, 25 10 C28 15, 31 15, 32 9 C33 15, 36 15, 39 10 C42 15, 48 17, 54 14 C56 24, 46 32, 34 30 C33 36, 33 44, 34 54 Z" fill="#eab308" stroke="#a16207" stroke-width="1.5"/></svg>
+    </div>
+    <!-- Maple Leaves -->
+    <div class="autumn-leaf" style="left: 15%; animation: autumnFallReverse 14s linear infinite 1s;">
+        <svg width="28" height="28" viewBox="0 0 64 64"><path d="M32 6 L37 20 L48 14 L44 26 L56 28 L46 36 L50 43 L34 40 L34 56 L30 56 L30 40 L14 43 L18 36 L8 28 L20 26 L16 14 L27 20 Z" fill="#dc2626" stroke="#991b1b" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 38%; animation: autumnFall 16s linear infinite 3.2s;">
+        <svg width="25" height="25" viewBox="0 0 64 64"><path d="M32 6 L37 20 L48 14 L44 26 L56 28 L46 36 L50 43 L34 40 L34 56 L30 56 L30 40 L14 43 L18 36 L8 28 L20 26 L16 14 L27 20 Z" fill="#ea580c" stroke="#9a3412" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 65%; animation: autumnFallReverse 12.5s linear infinite 5s;">
+        <svg width="29" height="29" viewBox="0 0 64 64"><path d="M32 6 L37 20 L48 14 L44 26 L56 28 L46 36 L50 43 L34 40 L34 56 L30 56 L30 40 L14 43 L18 36 L8 28 L20 26 L16 14 L27 20 Z" fill="#b91c1c" stroke="#7f1d1d" stroke-width="1.5"/></svg>
+    </div>
+    <div class="autumn-leaf" style="left: 88%; animation: autumnFall 13.5s linear infinite 2s;">
+        <svg width="26" height="26" viewBox="0 0 64 64"><path d="M32 6 L37 20 L48 14 L44 26 L56 28 L46 36 L50 43 L34 40 L34 56 L30 56 L30 40 L14 43 L18 36 L8 28 L20 26 L16 14 L27 20 Z" fill="#e11d48" stroke="#881337" stroke-width="1.5"/></svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="mountain-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">🍁 前兩晚花間堂·悅雪中級道暢滑 × 後兩晚轉住海珠區 🍂</div>
+            <h1 class="hero-title">廣州五日秋冬滑雪美食之旅</h1>
+            <p class="hero-subtitle">HUAAJIAN TANG BONSKI × HAIZHU DIM SUM × LINGNAN ANCIENT TOWNS</p>
+            <div class="hero-date">2026年12月23日（三）- 12月27日（日）</div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Accommodation & Package Strategy Banner -->
+        <div class="strategy-banner">
+            <h3>🏨 住宿與雪票定案策略：前兩晚「花間堂·悅雪中級道方案」＋ 後兩晚「海珠區地鐵沿線」</h3>
+            <p>
+                <strong>① 前兩晚（12/23–12/24）花間堂·悅雪中級道方案：</strong>直接預訂「廣州融創花間堂·悅雪」含<strong>中級道（企鵝道）不限時雪票＋雙人早餐</strong>套票（平日約 <strong>¥1,180–1,350 / 晚</strong>，約台幣 5,300–6,000 元；若買到初級道套票，現場補差價約 <strong>¥120–150/人</strong> 即可升級中級道），單板請教練上 13° 企鵝道練 S-Turn 換刃最標準！<br>
+                <strong>② 後兩晚（12/25–12/26）往南移師海珠區：</strong>Day 3 滑完雪退房直接往南住<strong>海珠區（江南西 / 昌崗 / 琶洲地鐵沿線）</strong>，去順德搭地鐵、去番禺沙灣古鎮、或隔天早上衝海珠區老字號早茶排隊名店都超級順路！
+            </p>
+        </div>
+
+        <!-- Overview Section -->
+        <h2 class="section-title">五日行程概覽</h2>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div>
+                    <div class="day-number">DAY 1</div>
+                    <div class="day-date">12月23日（三）</div>
+                    <div class="day-title">抵達廣州 → 入住花間堂·悅雪</div>
+                    <div class="day-subtitle">白雲機場直達花都融創、辦理中級道套票入住、花都海鮮晚餐</div>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div>
+                    <div class="day-number">DAY 2</div>
+                    <div class="day-date">12月24日（四）</div>
+                    <div class="day-title">單板教練課 + 永慶坊＆黃沙</div>
+                    <div class="day-subtitle">企鵝道中級道單板特訓、晚遊西關騎樓、黃沙海鮮大排檔</div>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div>
+                    <div class="day-number">DAY 3</div>
+                    <div class="day-date">12月25日（五）</div>
+                    <div class="day-title">中級道續滑 → 轉住海珠區 + 沙灣</div>
+                    <div class="day-subtitle">上午複習換刃、下午南下入住海珠區、夜遊沙灣古鎮與大排檔</div>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div>
+                    <div class="day-number">DAY 4</div>
+                    <div class="day-date">12月26日（六）</div>
+                    <div class="day-title">海珠排隊早茶 → 順德 / 中山</div>
+                    <div class="day-subtitle">一早衝海珠百年茶樓名店、午後地鐵直達順德清暉園與漁人碼頭</div>
+                </div>
+            </div>
+
+            <div class="overview-card">
+                <div>
+                    <div class="day-number">DAY 5</div>
+                    <div class="day-date">12月27日（日）</div>
+                    <div class="day-title">廣式早茶名店 → 白雲機場返台</div>
+                    <div class="day-subtitle">再刷一間排隊茶樓名店、海珠區輕鬆搭車前往機場返航</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Transit & Fare Table -->
+        <h2 class="section-title">全程交通方式・時間・票價總覽（含四大三小大車建議）</h2>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>起訖路段</th>
+                        <th>交通方式建議（三人輕裝 / 四大三小7人）</th>
+                        <th>預估時間</th>
+                        <th>預估票價（人民幣）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Day 1</strong><br>12/23（三）</td>
+                        <td>白雲機場 T2 → 花間堂·悅雪</td>
+                        <td><strong>3人：</strong>滴滴優享 / 六座商務車（1台）<br><strong>7人（四大三小）：</strong>同時叫「1台六座商務車＋1台快車」或預約「9座小巴」</td>
+                        <td>約 25–30 分鐘</td>
+                        <td>單台網約車 <strong>¥50–70</strong><br>（9座預約接機約 ¥300）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 2</strong><br>12/24（四）</td>
+                        <td>花間堂·悅雪 ↔ 荔灣永慶坊 / 黃沙</td>
+                        <td><strong>網約車</strong>直達荔灣老城區（7人分兩台快車最划算）<br><span class="text-xs text-gray-500">備選：打車至馬鞍山公園站轉地鐵9→3→1號線至黃沙站</span></td>
+                        <td>網約車約 50–60 分鐘<br>地鐵轉乘約 75 分鐘</td>
+                        <td>單台網約車 <strong>¥95–120</strong><br>地鐵 <strong>¥9 / 人</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 3</strong><br>12/25（五）</td>
+                        <td>花間堂·悅雪 → 海珠區飯店 → 沙灣古鎮</td>
+                        <td>15:30 退房取行李搭<strong>網約車</strong>至海珠區放行李（約 55 分）；17:30 輕裝轉往番禺沙灣古鎮（約 35 分）</td>
+                        <td>花都→海珠約 55 分<br>海珠→沙灣約 35 分</td>
+                        <td>花都→海珠 <strong>¥95–120 / 車</strong><br>海珠→沙灣 <strong>¥45–60 / 車</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 4</strong><br>12/26（六）</td>
+                        <td>海珠區早茶 → 順德大良＆容桂漁人碼頭</td>
+                        <td><strong>海珠區搭地鐵超近！</strong>昌崗/南洲搭 2/廣佛線轉 7號線再轉佛山 3號線至「大良鐘樓站」；大良→容桂打車</td>
+                        <td>地鐵單程約 <strong>45–55 分鐘</strong><br>大良→容桂約 15 分鐘</td>
+                        <td>地鐵 <strong>¥8–10 / 人</strong><br>大良→容桂網約車 <strong>¥18–25</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 4 備選</strong><br>12/26（六）</td>
+                        <td>海珠區 → 中山（孫文西路 / 東升脆肉鯇）</td>
+                        <td>地鐵 2 號線至廣州南站（約 20 分 / ¥4），轉<strong>廣珠城際高鐵</strong>至中山站 / 小欖站</td>
+                        <td>城際高鐵僅 <strong>30–40 分鐘</strong></td>
+                        <td>城際二等座 <strong>¥25–35 / 人</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day 5</strong><br>12/27（日）</td>
+                        <td>海珠區早茶名店 → 白雲國際機場 T2</td>
+                        <td><strong>滴滴網約車</strong>直達航廈出發層（7人叫 1台六座＋1台轎車）；或地鐵 2號線轉 3號線北延段至「機場北站」</td>
+                        <td>網約車約 45–55 分鐘<br>地鐵約 55 分鐘</td>
+                        <td>單台網約車 <strong>¥90–115</strong><br>地鐵 <strong>¥8 / 人</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Day 1 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">01</div>
+                <div class="day-header-info">
+                    <h3>抵達廣州 → 入住「花間堂·悅雪」中級道雪票套票</h3>
+                    <p>12月23日（三）｜下機 30 分鐘直達雪場旁五星度假飯店、開啟海鮮第一頓</p>
+                </div>
+            </div>
+
+            <div class="resort-info">
+                <h4>🏨 廣州融創花間堂·悅雪（原堇山酒店）中級道方案攻略</h4>
+                <div class="resort-stats">
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">套票內容：</span>
+                        <span class="resort-stat-value">悅雪客房 1 晚＋雙人早餐＋<strong>中級道不限時雪票 2 張</strong>（含全套雪服雪具）</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">平日參考價：</span>
+                        <span class="resort-stat-value">約 ¥1,180–1,350 / 晚（約 NT$ 5,300–6,050）</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">三人/多間訂法：</span>
+                        <span class="resort-stat-value">建議直接訂 2 套雙人套票（共 4 張中級道票，兩天剛好分配使用）或加購住客雪票</span>
+                    </div>
+                    <div class="resort-stat">
+                        <span class="resort-stat-label">飯店優勢：</span>
+                        <span class="resort-stat-value">步行 5 分鐘進雪場、免排隊取票禮遇，滑累隨時回房休息</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30 - 17:40</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>桃園機場出發 → 抵達廣州白雲國際機場 T2</span>
+                            <span class="transit-badge">✈️ 飛行 2小時10分</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>輕裝無自備雪具，領完標準行李箱即可快速通關前往網約車上車區。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">18:15</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>白雲機場 T2 → 廣州融創花間堂·悅雪</span>
+                            <span class="transit-badge">🚕 網約車約 25–30 分鐘</span>
+                            <span class="fare-badge">💴 車資 ¥50–70</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>辦理入住時，同步向飯店前台確認隔天早上「中級道不限時雪票」的台胞證實名綁定與領卡方式。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">19:45</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>晚餐：花都老字號現撈海鮮（椰林海鮮碼頭）</span>
+                            <span class="transit-badge">🚕 車程約 12 分鐘</span>
+                            <span class="fare-badge">💴 車資 ¥15 / 人均 ¥100–130</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>花都當地人氣海鮮酒家，現場海鮮池現撈白灼基圍蝦、清蒸多寶魚與蒜蓉粉絲蒸扇貝，早點休息備戰隔天教練課。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">02</div>
+                <div class="day-header-info">
+                    <h3>熱雪奇蹟「中級道」單板教練課 → 永慶坊＆黃沙海鮮大排檔</h3>
+                    <p>12月24日（四）｜上「企鵝道」練單板換刃 + 西關騎樓夜景 + 現挑海鮮大排檔</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00 - 16:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>廣州熱雪奇蹟 單板（Snowboard）教練特訓（Day 1）</span>
+                            <span class="transit-badge">🚶 花間堂步行 5 分鐘</span>
+                            <span class="fare-badge">🎫 已含於中級道套票內</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li><strong>為什麼單板必買中級道：</strong>初級道（7°–8°）坡度太緩，單板滑不動容易卡刃；請教練先在初級區暖身 30 分鐘確認煞車後，立刻搭纜車上 <strong>13°「企鵝道（中級道）」</strong>（長 320 公尺）練習前後刃落葉飄與連續 S-Turn 換刃，效率最高！</li>
+                                <li>中午可憑不限時雪卡暫時出場至「融創茂」吃午餐，下午繼續練習。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>花間堂沖洗換裝 → 荔灣區「永慶坊」夜遊</span>
+                            <span class="transit-badge">🚕 網約車約 55 分鐘</span>
+                            <span class="fare-badge">💴 車資 ¥95–115 / 景區免費</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>回花間堂房間舒舒服服洗完熱水澡再出發進老城區！</li>
+                                <li><strong>18:30 漫步永慶坊：</strong>西關騎樓歷史文化街區點燈後極美，必拍月亮橋倒影、李小龍祖居與粵劇藝術博物館夜景。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">20:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>晚餐：黃沙水產交易市場 海鮮大排檔</span>
+                            <span class="transit-badge">🚶 永慶坊步行 8 分鐘</span>
+                            <span class="fare-badge">💴 人均約 ¥120–180</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>樓下批發現撈帝王蟹、波士頓龍蝦、瀨尿蝦與蟶子王，直接上樓找大排檔現炒現蒸（詳細名店推薦見文末附錄），餐後搭網約車返回花間堂休息。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">03</div>
+                <div class="day-header-info">
+                    <h3>熱雪奇蹟續滑 Day 2 → 往南移師「海珠區」→ 沙灣古鎮＆大排檔</h3>
+                    <p>12月25日（五）｜上午複習單板換刃、下午進駐海珠區、晚上逛 800 年嶺南古鎮</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">09:45 - 15:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>花間堂退房寄放行李 → 熱雪奇蹟中級道複習（Day 2）</span>
+                            <span class="transit-badge">🚶 步行 5 分鐘</span>
+                            <span class="fare-badge">🎫 已含於中級道套票內</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>早上先辦退房將行李寄放禮賓部，進場把前一天教練教的中級道 S-Turn 動作刷熟定型。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">15:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>花都融創 → 往南移師「海珠區」飯店（連住兩晚）</span>
+                            <span class="transit-badge">🚕 網約車走高速約 55 分鐘</span>
+                            <span class="fare-badge">💴 車資 ¥95–120</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li><strong>海珠區住宿選點建議：</strong>首選<strong>「江南西站 / 昌崗站」</strong>（老廣美食核心，步行就能吃排隊早茶名店）或<strong>「客村站 / 琶洲站」</strong>（地鐵 3/8 號線樞紐，去順德與白雲機場超快）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:45</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>南下番禺「沙灣古鎮」＋ 水鄉海鮮大排檔</span>
+                            <span class="transit-badge">🚕 海珠區出發約 35 分鐘</span>
+                            <span class="fare-badge">💴 車資 ¥45–60 / 晚餐人均 ¥100–130</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>卸下行李後輕裝南下，漫步 800 年青磚鑊耳牆古鎮、品嚐正宗<strong>沙灣薑埋奶</strong>，晚上在番禺洛溪／南浦水岸海鮮大排檔享用珠江口現撈河海鮮。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">04</div>
+                <div class="day-header-info">
+                    <h3>海珠排隊早茶名店 → 順德（或中山）古鎮夜市一日遊</h3>
+                    <p>12月26日（六）｜一早先攻海珠老字號排隊茶樓、午後地鐵直達順德清暉園與漁人碼頭</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">08:30 - 10:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>早餐重頭戲：海珠區「排隊早茶名店」一盅兩件</span>
+                            <span class="transit-badge">🚶 海珠區飯店步行或短程打車</span>
+                            <span class="fare-badge">💴 人均約 ¥75–110</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>海珠區是廣州老牌茶樓大本營！推薦一早 8:30 前（或提前在微信「美味不用等」取號）前往<strong>「南園酒家」（園林式百年排隊名店）</strong>或<strong>「鵝公村 / 富臨皇宮 / 利苑酒家」</strong>（詳細介紹與必點清單見文末附錄）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">10:30 - 21:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>午後至晚上：順德地鐵一日遊（或中山城軌一日遊）</span>
+                            <span class="transit-badge">🚇 海珠區搭地鐵至順德約 50 分鐘</span>
+                            <span class="fare-badge">💴 地鐵單程 ¥8–10</span>
+                        </div>
+                        <div class="timeline-description">
+                            <div class="route-split">
+                                <div class="route-box recommended">
+                                    <h5>⭐ 主推方案 A｜順德地鐵一日遊（清暉園＋漁人碼頭夜市）</h5>
+                                    <ul>
+                                        <li><strong>交通：</strong>海珠區搭地鐵至廣州南站轉 7號線再轉佛山 3號線，直達「大良鐘樓站 E 出口」（¥8–10）。</li>
+                                        <li><strong>下午：</strong>遊覽嶺南四大名園<strong>清暉園</strong>（門票 ¥15）＋ <strong>華蓋路步行街</strong>吃雙皮奶、炸牛奶。</li>
+                                        <li><strong>晚上：</strong>打車 15 分鐘（¥20）到<strong>容桂漁人碼頭</strong>逛江畔燈塔塗鴉夜市，晚餐吃順德無骨魚生與桑拿海鮮大排檔。</li>
+                                    </ul>
+                                </div>
+                                <div class="route-box">
+                                    <h5>🏛️ 備選方案 B｜中山城軌一日遊（孫文西路＋脆肉鯇）</h5>
+                                    <ul>
+                                        <li><strong>交通：</strong>廣州南站搭「廣珠城際高鐵」30 分鐘直達中山（¥25–35）。</li>
+                                        <li><strong>下午：</strong>逛<strong>孫文西路百年南洋騎樓老街</strong>，吃現烤<strong>石岐乳鴿</strong>。</li>
+                                        <li><strong>晚上：</strong>逛<strong>岐江公園摩天輪夜市</strong>，晚餐專程吃中山名產<strong>「東升脆肉鯇一魚多吃」</strong>大排檔。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 Detail -->
+        <div class="day-detail-card">
+            <div class="day-header">
+                <div class="day-header-number">05</div>
+                <div class="day-header-info">
+                    <h3>二刷廣州排隊早茶名店 → 白雲機場返抵桃園</h3>
+                    <p>12月27日（日）｜把沒吃到的經典點心補齊、從容前往機場返航</p>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">09:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>早午餐：廣州老牌早茶排隊名店二刷</span>
+                            <span class="transit-badge">🚕 海珠區短程移動</span>
+                            <span class="fare-badge">💴 人均約 ¥80–120</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Day 4 吃園林老字號（南園酒家），Day 5 推薦改吃米其林級排隊名店<strong>「利苑酒家（宜安廣場/珠江新城）」</strong>或<strong>「泮溪酒家 / 廣州酒家（文昌總店）」</strong>，吃完順便買伴手禮（雞仔餅、老婆餅、臘腸）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span>海珠區飯店退房取行李 → 廣州白雲國際機場 T2</span>
+                            <span class="transit-badge">🚕 網約車約 45–55 分鐘（地鐵約 55 分鐘）</span>
+                            <span class="fare-badge">💴 網約車 ¥90–115 / 地鐵 ¥8</span>
+                        </div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>起飛前 2 小時抵達白雲機場 T2 辦理登機與行李托運，搭乘午後直飛航班返抵桃園機場。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- APPENDIX 1: ILLUSTRATED ANCIENT TOWNS GUIDE (圖文並茂古鎮介紹)         -->
+        <!-- ===================================================================== -->
+        <h2 class="section-title">附錄一｜嶺南古鎮與歷史街區圖文導覽</h2>
+        <div class="town-grid">
+            <!-- Town 1: Yongqingfang -->
+            <div class="town-card">
+                <div class="town-visual">
+                    <span class="town-tag">Day 2 夜晚｜廣州荔灣區</span>
+                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#1e1b4b"/>
+                                <stop offset="100%" stop-color="#312e81"/>
+                            </linearGradient>
+                            <linearGradient id="water1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#1e3a8a"/>
+                                <stop offset="100%" stop-color="#0f172a"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="600" height="175" fill="url(#sky1)"/>
+                        <rect y="175" width="600" height="85" fill="url(#water1)"/>
+                        <!-- Lingnan Qilou Buildings -->
+                        <rect x="30" y="65" width="110" height="110" fill="#7c2d12" rx="4"/>
+                        <rect x="45" y="80" width="22" height="32" fill="#fde047" opacity="0.85" rx="2"/>
+                        <rect x="85" y="80" width="22" height="32" fill="#fde047" opacity="0.85" rx="2"/>
+                        <rect x="460" y="55" width="115" height="120" fill="#9a3412" rx="4"/>
+                        <rect x="480" y="75" width="24" height="34" fill="#fef08a" opacity="0.85" rx="2"/>
+                        <rect x="520" y="75" width="24" height="34" fill="#fef08a" opacity="0.85" rx="2"/>
+                        <!-- Moon Bridge & Reflection -->
+                        <path d="M160,175 Q300,75 440,175" fill="none" stroke="#fbbf24" stroke-width="10"/>
+                        <path d="M175,175 Q300,92 425,175" fill="none" stroke="#fef3c7" stroke-width="3" stroke-dasharray="6,4"/>
+                        <path d="M160,175 Q300,265 440,175" fill="none" stroke="#fbbf24" stroke-width="7" opacity="0.45"/>
+                        <!-- Red Lanterns -->
+                        <circle cx="130" cy="110" r="8" fill="#ef4444"/>
+                        <circle cx="470" cy="110" r="8" fill="#ef4444"/>
+                        <circle cx="530" cy="45" r="22" fill="#fef08a" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div class="town-body">
+                    <div class="town-title">永慶坊（西關騎樓歷史文化街區）</div>
+                    <div class="town-meta">📍 荔灣區恩寧路｜地鐵1/6號線黃沙站步行6分鐘｜免費開放</div>
+                    <div class="town-desc">
+                        廣州保存最完整的百年西關騎樓老街，將清末民初的青磚大屋、滿洲彩窗與文創咖啡店融合。夜晚河涌兩岸紅燈籠亮起時，拱形「月亮橋」與水中倒影形成一輪完整滿月，是廣州最經典的夜拍地標。
+                    </div>
+                    <div class="town-highlights">
+                        <strong>必看亮點：</strong>月亮橋夜景、李小龍祖居（西關大屋建築代表）、粵劇藝術博物館水景、恩寧路非遺銅器街，步行 8 分鐘即達黃沙海鮮大排檔。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Town 2: Shawan Ancient Town -->
+            <div class="town-card">
+                <div class="town-visual">
+                    <span class="town-tag">Day 3 傍晚｜廣州番禺區</span>
+                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#7c2d12"/>
+                                <stop offset="55%" stop-color="#d97706"/>
+                                <stop offset="100%" stop-color="#fde68a"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="600" height="260" fill="url(#dusk)"/>
+                        <!-- Wok-ear (鑊耳牆) Lingnan Architecture -->
+                        <path d="M60,220 L60,110 Q60,70 85,70 Q110,70 110,110 L110,130 L210,130 L210,110 Q210,70 235,70 Q260,70 260,110 L260,220 Z" fill="#334155"/>
+                        <path d="M310,220 L310,95 Q310,50 340,50 Q370,50 370,95 L370,120 L490,120 L490,95 Q490,50 520,50 Q550,50 550,95 L550,220 Z" fill="#1e293b"/>
+                        <!-- Stone Alley & Lanterns -->
+                        <rect y="215" width="600" height="45" fill="#475569"/>
+                        <line x1="110" y1="135" x2="310" y2="125" stroke="#fef3c7" stroke-width="2"/>
+                        <circle cx="160" cy="142" r="9" fill="#dc2626"/>
+                        <circle cx="210" cy="139" r="9" fill="#f59e0b"/>
+                        <circle cx="260" cy="136" r="9" fill="#dc2626"/>
+                    </svg>
+                </div>
+                <div class="town-body">
+                    <div class="town-title">沙灣古鎮（800年廣府文化古鎮）</div>
+                    <div class="town-meta">📍 番禺區大巷涌路｜海珠區打車約35分鐘｜街區免費（展館聯票¥40）</div>
+                    <div class="town-desc">
+                        始建於南宋、擁有超過 800 年歷史的嶺南名鎮，也是廣東音樂《賽龍奪錦》發源地。全鎮保留大片明清時期的<strong>「青磚鑊耳山牆」</strong>與用生蠔殼砌成的<strong>「蠔殼牆」</strong>，沒有過度商業化，傍晚燈籠亮起時極具水鄉靜謐古韻。
+                    </div>
+                    <div class="town-highlights">
+                        <strong>必看與必吃：</strong>留耕堂（何氏大宗祠）、三稔廳、文峰塔；古鎮街邊必吃現撞<strong>沙灣薑埋奶（奶品世家）</strong>、魚皮角與水牛奶蛋撻。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Town 3: Shunde Qinghui Garden & Fisherman's Wharf -->
+            <div class="town-card">
+                <div class="town-visual">
+                    <span class="town-tag">Day 4 全日｜佛山順德區</span>
+                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gardenSky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#0284c7"/>
+                                <stop offset="100%" stop-color="#bae6fd"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="600" height="190" fill="url(#gardenSky)"/>
+                        <rect y="190" width="600" height="70" fill="#0d9488"/>
+                        <!-- Classical Pavilion -->
+                        <polygon points="140,115 240,70 340,115" fill="#1e293b"/>
+                        <polygon points="160,95 240,60 320,95" fill="#334155"/>
+                        <rect x="175" y="115" width="12" height="75" fill="#991b1b"/>
+                        <rect x="293" y="115" width="12" height="75" fill="#991b1b"/>
+                        <rect x="155" y="182" width="170" height="10" fill="#e2e8f0"/>
+                        <!-- Lighthouse at Fisherman's Wharf -->
+                        <rect x="460" y="75" width="26" height="115" fill="#ffffff"/>
+                        <rect x="460" y="105" width="26" height="22" fill="#2563eb"/>
+                        <rect x="460" y="145" width="26" height="22" fill="#2563eb"/>
+                        <polygon points="455,75 473,52 491,75" fill="#dc2626"/>
+                        <!-- Autumn Ginkgo Tree -->
+                        <circle cx="85" cy="135" r="45" fill="#f59e0b" opacity="0.9"/>
+                        <circle cx="115" cy="150" r="35" fill="#fbbf24" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div class="town-body">
+                    <div class="town-title">順德清暉園 ＋ 華蓋路老街 ＋ 容桂漁人碼頭</div>
+                    <div class="town-meta">📍 佛山順德大良＆容桂｜地鐵直達大良鐘樓站｜清暉園門票¥15</div>
+                    <div class="town-desc">
+                        聯合國認證「世界美食之都」！白天逛明代嶺南四大名園之首<strong>清暉園</strong>與彩色滿洲窗騎樓<strong>華蓋路步行街</strong>；傍晚轉往德勝河畔的<strong>容桂漁人碼頭</strong>，藍白燈塔、巨型文創塗鴉牆與露天河岸夜市超好拍，更是順德河鮮大排檔大本營。
+                    </div>
+                    <div class="town-highlights">
+                        <strong>必看與必吃：</strong>清暉園船廳與八表來香亭、民信老鋪雙皮奶、細妹五香牛雜、漁人碼頭燈塔日落與順德桑拿海鮮。
+                    </div>
+                </div>
+            </div>
+
+            <!-- Town 4: Zhongshan Sunwen West Road -->
+            <div class="town-card">
+                <div class="town-visual">
+                    <span class="town-tag">Day 4 備選｜中山石岐區</span>
+                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="zsSky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="#fef08a"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="600" height="260" fill="url(#zsSky)"/>
+                        <!-- Nanyang Pastel Arcade Buildings -->
+                        <rect x="45" y="75" width="135" height="145" fill="#fbcfe8" rx="4"/>
+                        <path d="M45,75 Q112,35 180,75 Z" fill="#f472b6"/>
+                        <rect x="65" y="100" width="26" height="42" fill="#1e3a8a" rx="12"/>
+                        <rect x="130" y="100" width="26" height="42" fill="#1e3a8a" rx="12"/>
+
+                        <rect x="195" y="85" width="140" height="135" fill="#bae6fd" rx="4"/>
+                        <rect x="215" y="110" width="28" height="40" fill="#1e3a8a" rx="4"/>
+                        <rect x="285" y="110" width="28" height="40" fill="#1e3a8a" rx="4"/>
+
+                        <!-- Ferris Wheel -->
+                        <circle cx="475" cy="125" r="65" fill="none" stroke="#ffffff" stroke-width="5"/>
+                        <circle cx="475" cy="125" r="45" fill="none" stroke="#fef3c7" stroke-width="2"/>
+                        <line x1="475" y1="125" x2="435" y2="220" stroke="#ffffff" stroke-width="5"/>
+                        <line x1="475" y1="125" x2="515" y2="220" stroke="#ffffff" stroke-width="5"/>
+                        <rect y="215" width="600" height="45" fill="#334155"/>
+                    </svg>
+                </div>
+                <div class="town-body">
+                    <div class="town-title">中山孫文西路步行街 ＋ 岐江公園摩天輪夜市</div>
+                    <div class="town-meta">📍 中山市石岐區｜廣州南站城軌30分鐘直達｜免費開放</div>
+                    <div class="town-desc">
+                        百年歷史的南洋華僑騎樓商業街，整排粉紅、粉藍與鵝黃色歐陸雕花騎樓保存極佳，充滿濃濃民國風情。步行街盡頭連接岐江河畔與興中廣場幻彩摩天輪，晚上江風徐徐、夜市攤位熱鬧非凡。
+                    </div>
+                    <div class="town-highlights">
+                        <strong>必看與必吃：</strong>思豪大酒店舊址、香山商業文化博物館、現烤爆汁<strong>石岐乳鴿</strong>、咀香園杏仁餅、東升脆肉鯇大排檔。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================== -->
+        <!-- APPENDIX 2: FAMOUS RESTAURANTS & DAI PAI DONG GUIDE (名店與大排檔總整理) -->
+        <!-- ===================================================================== -->
+        <h2 class="section-title">附錄二｜廣州排隊早茶名店 ＆ 海鮮大排檔完整清單</h2>
+
+        <!-- Category A: Dim Sum Queue Legends -->
+        <div class="appendix-category-title">🍵 一、廣州老字號排隊早茶名店（Day 4 / Day 5 早午餐首選）</div>
+        <div class="restaurant-grid">
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header dimsum">
+                        <div class="rest-name">1. 南園酒家（海珠區百年園林名店）</div>
+                        <div class="rest-sub">廣州四大園林酒家之一｜海珠區前進路142號</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>海珠區曉港站 A 出口步行 6 分鐘（住海珠區超近！）</div>
+                        <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>當地阿公阿嬤與遊客天天大排長龍，建議 <strong>08:30 前到場</strong>或先在微信「美味不用等」線上取號；坐園林亭台水榭旁吃早茶氣氛無敵。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥80–110</div>
+                        <div class="rest-must-eat">🥢 必點招牌：南園蝦餃皇、至尊燒賣皇、潮州粉果、香麻炸軟棗、陳皮牛肉球。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header dimsum">
+                        <div class="rest-name">2. 利苑酒家（粵菜黃埔軍校・米其林星級）</div>
+                        <div class="rest-sub">廣州排隊天花板｜越秀宜安廣場店 / 天河珠江新城店</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>地鐵 5 號線「淘金站」或「獵德站」步行 5 分鐘</div>
+                        <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>午市早茶 11:30 開門前門口就排滿人，強烈建議<strong>提前 1–2 天電話訂位</strong>或 11:00 到現場登記第一輪；環境與服務極具水準。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥130–180</div>
+                        <div class="rest-must-eat">🥢 必點招牌：招牌冰燒三層肉（每日限量必搶）、楊枝甘露（發源地）、龍蝦湯泡飯、原隻鮮蝦餃。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header dimsum">
+                        <div class="rest-name">3. 廣州酒家（文昌總店・食在廣州第一家）</div>
+                        <div class="rest-sub">始創1935年中華老字號｜荔灣區文昌南路2號</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>地鐵 1 號線「長壽路站」步行 8 分鐘（靠近上下九＆永慶坊）</div>
+                        <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>週末早上 09:00 後通常需等位 30–60 分鐘，樓下設有大型手信餅屋，吃完可直接買雞仔餅、核桃酥當伴手禮。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥85–120</div>
+                        <div class="rest-must-eat">🥢 必點招牌：文昌雞（招牌名菜）、金牌蝦餃皇、百合醬蒸鳳爪、荔灣艇仔粥、流沙包。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header dimsum">
+                        <div class="rest-name">4. 鵝公村（海珠區超人氣園林茶樓）</div>
+                        <div class="rest-sub">海珠在地人私藏排隊名店｜海珠區新滘西路556號</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>海珠區南洲／瀝滘一帶，海珠區飯店打車約 10–15 分鐘（順路往南去順德！）</div>
+                        <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>超大嶺南水鄉園區，每逢週末早茶與午市座無虛席，帶小孩來還能看池塘錦鯉。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥75–105</div>
+                        <div class="rest-must-eat">🥢 必點招牌：秘製荔枝木燒鵝（必點）、鵝公村蝦餃皇、金沙紅米腸、薑撞奶。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category B: Guangzhou Seafood Dai Pai Dong -->
+        <div class="appendix-category-title">🦞 二、廣州生猛海鮮大排檔名店（Day 1 / Day 2 / Day 3 晚餐精選）</div>
+        <div class="restaurant-grid">
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header seafood">
+                        <div class="rest-name">1. 黃沙水產市場＋盛港灣海鮮食府</div>
+                        <div class="rest-sub">Day 2 晚餐首選｜荔灣區黃沙大道（永慶坊旁）</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">美食玩法：</span>廣州最大海鮮批發集散地！先在一樓市場親手挑帝王蟹、波士頓龍蝦、大瀨尿蝦、蟶子王與鮑魚，再上樓由「盛港灣」或「金沙港」大排檔現場快炒清蒸，鑊氣與新鮮度滿分。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥130–180（視所選高檔海鮮而定）</div>
+                        <div class="rest-must-eat">🦐 必點料理：避風塘炒蟹、椒鹽富貴蝦（瀨尿蝦）、蒜蓉粉絲蒸蟶子王、薑蔥炒花甲。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header seafood">
+                        <div class="rest-name">2. 等我餸上門（西關懷舊大排檔名店）</div>
+                        <div class="rest-sub">Day 2 晚餐備選｜荔灣區荔灣路97號動感小西關</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>不想自己去市場挑海鮮、想直接坐下來點菜的首選！復古西關大排檔裝潢，晚市天天爆滿，主打猛火現炒海鮮與廣式啫啫煲，口味地道不踩雷。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥85–115</div>
+                        <div class="rest-must-eat">🦐 必點料理：招牌沙薑豬手、啫啫生腸煲、椒鹽九肚魚、避風塘炒大蝦、豉油王鵝腸。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header seafood">
+                        <div class="rest-name">3. 南浦十八湧大排檔（番禺水鄉海鮮）</div>
+                        <div class="rest-sub">Day 3 晚餐｜番禺區南浦碧桂大道（沙灣古鎮順路）</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>逛完沙灣古鎮往回開順路必吃！主打珠江出海口「南沙十八湧」鹹淡水交界特色河鮮與海產，魚蝦肉質格外鮮甜，露天大排檔氛圍熱鬧。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥95–130</div>
+                        <div class="rest-must-eat">🦐 必點料理：清蒸黃腳立、白灼麻蝦、薑蔥炒肉蟹、瓦罉焗魚頭、海鮮砂鍋粥。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header seafood">
+                        <div class="rest-name">4. 椰林海鮮碼頭（花都旗艦店）</div>
+                        <div class="rest-sub">Day 1 晚餐｜花都區雅瑤中路（距花間堂約12分鐘）</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>第一晚剛下飛機住花間堂的最佳晚餐選擇，大型明檔海鮮池現點現撈、價格透明，環境寬敞適合多人聚餐。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥100–140</div>
+                        <div class="rest-must-eat">🦐 必點料理：清蒸老虎斑、白灼基圍蝦、蒜蓉蒸帶子、上湯桑葉。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category C: Shunde & Zhongshan Specialties -->
+        <div class="appendix-category-title">🐟 三、順德 ＆ 中山大排檔與老字號名店（Day 4 一日遊精選）</div>
+        <div class="restaurant-grid">
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header shunde">
+                        <div class="rest-name">1. 順德容桂漁人碼頭・大排檔與桑拿菜</div>
+                        <div class="rest-sub">推薦：太艮堡毋米粥 / 順德公豬肚雞 / 江畔海鮮排檔</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>順德人吃海鮮講究「原汁原味」！在容桂漁人碼頭江邊看完日落與夜市後，必試順德獨有的<strong>「桑拿海鮮」</strong>（用米湯蒸汽現蒸無骨魚片、鮮蝦與貝類，鮮甜鎖水）或「毋米粥火鍋」。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥100–145</div>
+                        <div class="rest-must-eat">🐟 必點料理：順德無骨魚生（一魚多吃）、桑拿鮮鮑魚與大蝦、煎焗魚嘴、倫教糕。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header shunde">
+                        <div class="rest-name">2. 順德大良華蓋路・百年甜品小吃名店</div>
+                        <div class="rest-sub">推薦：民信老鋪（總店） / 細妹五香牛雜 / 韋記牛雜湯</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>清暉園旁步行 3 分鐘，民信老鋪是雙皮奶非遺老字號，奶皮厚實香濃；旁邊細妹牛雜經常排長隊，蘿蔔與牛腩燉得極入味。</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥35–60</div>
+                        <div class="rest-must-eat">🍮 必點小吃：原味雙皮奶、炸牛奶拼盤、薑撞奶、五香牛雜煲。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest-card">
+                <div>
+                    <div class="rest-header shunde">
+                        <div class="rest-name">3. 中山石岐佬 ＆ 東升脆肉鯇大排檔</div>
+                        <div class="rest-sub">備選中山路線名店｜石岐區康華路 / 小欖東升鎮</div>
+                    </div>
+                    <div class="rest-body">
+                        <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>「石岐佬」是中山排隊人氣王，乳鴿皮脆肉嫩會爆汁；晚上到東升鎮吃「脆肉鯇（吃蠶豆長大的爽脆草魚）」，魚片在清水火鍋燙 12 秒就熟，口感像鮑魚般脆彈！</div>
+                        <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥95–130</div>
+                        <div class="rest-must-eat">🕊️ 必點料理：石岐紅燒乳鴿、菠蘿包（比臉還大）、脆肉鯇魚片火鍋、椒鹽脆魚腩。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <div class="tips-section">
+            <h3>出發前實用總提醒</h3>
+            <ul>
+                <li><strong>花間堂·悅雪中級道套票預訂：</strong>訂房時優先選標註「含中級道不限時滑雪票」的房型；若訂到初級道方案，入住或進場前在雪場票務中心補差價（約 ¥120–150/人）即可升級上企鵝道練單板。</li>
+                <li><strong>海珠區排隊早茶取號秘訣：</strong>廣州老字號早茶（南園酒家、利苑、廣州酒家）週末早上 09:00 後一定大排長龍，出發前先用微信搜尋「美味不用等」或店家公眾號線上取號，到了就能直接入座。</li>
+                <li><strong>黃沙水產市場防坑小技巧：</strong>一樓買海鮮時務必讓攤販「把袋子剪小洞瀝乾水」再上秤，並先問清楚樓上大排檔每道菜的加工費（清蒸／白灼約 ¥15–25/斤）。</li>
+                <li><strong>大車叫車提醒（四大三小）：</strong>若與朋友同行共 7 位（含小孩），網約車上限為 6 位乘客，請用兩支手機同時叫「1台六座商務車＋1台快車」，或提前在攜程／Klook 預約「9人座商務車」全團同車最輕鬆。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h3>🍁 祝廣州秋冬滑雪、古鎮漫步與海鮮早茶之旅愉快！ 🍂</h3>
+        <p>Have an unforgettable snow, heritage &amp; Cantonese culinary adventure!</p>
+    </div>
+</body>
+</html>
