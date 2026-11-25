@@ -541,7 +541,7 @@
             font-weight: 700;
         }
 
-        /* Illustrated Ancient Town Cards (Appendix) */
+        /* Illustrated Ancient Town Cards (Appendix) - Golden Hour & Night Aesthetic */
         .town-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -563,21 +563,53 @@
         }
 
         .town-visual {
-            height: 210px;
+            height: 245px;
             position: relative;
             overflow: hidden;
+            background: #1e293b;
         }
 
-        .town-visual svg {
+        .town-visual img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
             display: block;
+            filter: saturate(1.18) contrast(1.06) brightness(0.96);
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        .town-card:hover .town-visual img {
+            transform: scale(1.07);
+            filter: saturate(1.26) contrast(1.08) brightness(1.02);
+        }
+
+        .town-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, rgba(124, 45, 18, 0.14) 55%, rgba(15, 23, 42, 0.85) 100%);
+            pointer-events: none;
+        }
+
+        .town-visual-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 1.6rem 1.1rem 0.7rem;
+            color: #fef3c7;
+            font-size: 0.84rem;
+            font-weight: 500;
+            letter-spacing: 0.6px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
         }
 
         .town-tag {
             position: absolute;
             top: 1rem;
             left: 1rem;
+            z-index: 3;
             background: rgba(30, 58, 138, 0.88);
             color: #fef3c7;
             padding: 0.3rem 0.9rem;
@@ -620,12 +652,12 @@
             line-height: 1.6;
         }
 
-        /* Appendix Restaurant Directory Cards */
+        /* Appendix Restaurant Directory Cards with Signature Dish Photos */
         .appendix-category-title {
             font-size: 1.55rem;
             font-weight: 700;
             color: #9a3412;
-            margin: 2.5rem 0 1.4rem;
+            margin: 2.8rem 0 1.5rem;
             padding-left: 1rem;
             border-left: 6px solid var(--maple-red);
             display: flex;
@@ -636,23 +668,69 @@
         .restaurant-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.6rem;
-            margin-bottom: 2.5rem;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
         }
 
         .rest-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #fde68a;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(180, 83, 9, 0.16);
+        }
+
+        .rest-photo-box {
+            height: 195px;
+            position: relative;
+            overflow: hidden;
+            background: #1f2937;
+        }
+
+        .rest-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(1.16) contrast(1.04);
+            transition: transform 0.55s ease;
+        }
+
+        .rest-card:hover .rest-photo-box img {
+            transform: scale(1.07);
+        }
+
+        .rest-photo-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(15, 23, 42, 0.82) 100%);
+            pointer-events: none;
+        }
+
+        .rest-dish-badge {
+            position: absolute;
+            bottom: 0.65rem;
+            left: 1rem;
+            right: 1rem;
+            z-index: 2;
+            color: #fef3c7;
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
 
         .rest-header {
-            padding: 1.3rem 1.6rem;
+            padding: 1.15rem 1.5rem;
             color: white;
         }
 
@@ -669,20 +747,24 @@
         }
 
         .rest-name {
-            font-size: 1.3rem;
+            font-size: 1.24rem;
             font-weight: 700;
             margin-bottom: 0.25rem;
         }
 
         .rest-sub {
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             opacity: 0.92;
         }
 
         .rest-body {
-            padding: 1.4rem 1.6rem;
+            padding: 1.35rem 1.5rem 1.5rem;
             font-size: 0.93rem;
             line-height: 1.65;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .rest-info-row {
@@ -699,7 +781,10 @@
             padding-top: 0.85rem;
             border-top: 1px dashed #e5e7eb;
             color: #92400e;
-            font-weight: 500;
+            font-weight: 600;
+            background: #fffbeb;
+            padding: 0.7rem 0.9rem;
+            border-radius: 10px;
         }
 
         /* Tips Section */
@@ -771,6 +856,7 @@
             .day-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
             .timeline { padding-left: 2rem; }
             .town-grid { grid-template-columns: 1fr; }
+            .restaurant-grid { grid-template-columns: 1fr; }
         }
 
         @media print {
@@ -1253,49 +1339,22 @@
         </div>
 
         <!-- ===================================================================== -->
-        <!-- APPENDIX 1: ILLUSTRATED ANCIENT TOWNS GUIDE (圖文並茂古鎮介紹)         -->
+        <!-- APPENDIX 1: ILLUSTRATED ANCIENT TOWNS GUIDE (夜景與日落實景導覽)          -->
         <!-- ===================================================================== -->
-        <h2 class="section-title">附錄一｜嶺南古鎮與歷史街區圖文導覽</h2>
+        <h2 class="section-title">附錄一｜嶺南古鎮與歷史街區「日落・夜景」實景導覽</h2>
         <div class="town-grid">
-            <!-- Town 1: Yongqingfang -->
+            <!-- Town 1: Yongqingfang Night -->
             <div class="town-card">
                 <div class="town-visual">
                     <span class="town-tag">Day 2 夜晚｜廣州荔灣區</span>
-                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#1e1b4b"/>
-                                <stop offset="100%" stop-color="#312e81"/>
-                            </linearGradient>
-                            <linearGradient id="water1" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#1e3a8a"/>
-                                <stop offset="100%" stop-color="#0f172a"/>
-                            </linearGradient>
-                        </defs>
-                        <rect width="600" height="175" fill="url(#sky1)"/>
-                        <rect y="175" width="600" height="85" fill="url(#water1)"/>
-                        <!-- Lingnan Qilou Buildings -->
-                        <rect x="30" y="65" width="110" height="110" fill="#7c2d12" rx="4"/>
-                        <rect x="45" y="80" width="22" height="32" fill="#fde047" opacity="0.85" rx="2"/>
-                        <rect x="85" y="80" width="22" height="32" fill="#fde047" opacity="0.85" rx="2"/>
-                        <rect x="460" y="55" width="115" height="120" fill="#9a3412" rx="4"/>
-                        <rect x="480" y="75" width="24" height="34" fill="#fef08a" opacity="0.85" rx="2"/>
-                        <rect x="520" y="75" width="24" height="34" fill="#fef08a" opacity="0.85" rx="2"/>
-                        <!-- Moon Bridge & Reflection -->
-                        <path d="M160,175 Q300,75 440,175" fill="none" stroke="#fbbf24" stroke-width="10"/>
-                        <path d="M175,175 Q300,92 425,175" fill="none" stroke="#fef3c7" stroke-width="3" stroke-dasharray="6,4"/>
-                        <path d="M160,175 Q300,265 440,175" fill="none" stroke="#fbbf24" stroke-width="7" opacity="0.45"/>
-                        <!-- Red Lanterns -->
-                        <circle cx="130" cy="110" r="8" fill="#ef4444"/>
-                        <circle cx="470" cy="110" r="8" fill="#ef4444"/>
-                        <circle cx="530" cy="45" r="22" fill="#fef08a" opacity="0.9"/>
-                    </svg>
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="廣州荔灣・永慶坊西關騎樓與河涌華燈夜景" loading="lazy">
+                    <div class="town-visual-caption">✨ 廣州荔灣・永慶坊西關騎樓與河涌華燈夜景</div>
                 </div>
                 <div class="town-body">
                     <div class="town-title">永慶坊（西關騎樓歷史文化街區）</div>
                     <div class="town-meta">📍 荔灣區恩寧路｜地鐵1/6號線黃沙站步行6分鐘｜免費開放</div>
                     <div class="town-desc">
-                        廣州保存最完整的百年西關騎樓老街，將清末民初的青磚大屋、滿洲彩窗與文創咖啡店融合。夜晚河涌兩岸紅燈籠亮起時，拱形「月亮橋」與水中倒影形成一輪完整滿月，是廣州最經典的夜拍地標。
+                        廣州保存最完整的百年西關騎樓老街，將清末民初的青磚大屋、滿洲彩窗與文創咖啡店融合。夜晚河涌兩岸紅燈籠亮起時，拱形「月亮橋」與水中倒影形成一輪完整滿月，是廣州最經典的網紅夜拍地標。
                     </div>
                     <div class="town-highlights">
                         <strong>必看亮點：</strong>月亮橋夜景、李小龍祖居（西關大屋建築代表）、粵劇藝術博物館水景、恩寧路非遺銅器街，步行 8 分鐘即達黃沙海鮮大排檔。
@@ -1303,35 +1362,18 @@
                 </div>
             </div>
 
-            <!-- Town 2: Shawan Ancient Town -->
+            <!-- Town 2: Shawan Ancient Town Dusk -->
             <div class="town-card">
                 <div class="town-visual">
                     <span class="town-tag">Day 3 傍晚｜廣州番禺區</span>
-                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#7c2d12"/>
-                                <stop offset="55%" stop-color="#d97706"/>
-                                <stop offset="100%" stop-color="#fde68a"/>
-                            </linearGradient>
-                        </defs>
-                        <rect width="600" height="260" fill="url(#dusk)"/>
-                        <!-- Wok-ear (鑊耳牆) Lingnan Architecture -->
-                        <path d="M60,220 L60,110 Q60,70 85,70 Q110,70 110,110 L110,130 L210,130 L210,110 Q210,70 235,70 Q260,70 260,110 L260,220 Z" fill="#334155"/>
-                        <path d="M310,220 L310,95 Q310,50 340,50 Q370,50 370,95 L370,120 L490,120 L490,95 Q490,50 520,50 Q550,50 550,95 L550,220 Z" fill="#1e293b"/>
-                        <!-- Stone Alley & Lanterns -->
-                        <rect y="215" width="600" height="45" fill="#475569"/>
-                        <line x1="110" y1="135" x2="310" y2="125" stroke="#fef3c7" stroke-width="2"/>
-                        <circle cx="160" cy="142" r="9" fill="#dc2626"/>
-                        <circle cx="210" cy="139" r="9" fill="#f59e0b"/>
-                        <circle cx="260" cy="136" r="9" fill="#dc2626"/>
-                    </svg>
+                    <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=1000&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="廣州番禺・沙灣古鎮嶺南鑊耳牆黃昏光影" loading="lazy">
+                    <div class="town-visual-caption">🌅 廣州番禺・沙灣古鎮嶺南鑊耳牆黃昏光影</div>
                 </div>
                 <div class="town-body">
                     <div class="town-title">沙灣古鎮（800年廣府文化古鎮）</div>
                     <div class="town-meta">📍 番禺區大巷涌路｜海珠區打車約35分鐘｜街區免費（展館聯票¥40）</div>
                     <div class="town-desc">
-                        始建於南宋、擁有超過 800 年歷史的嶺南名鎮，也是廣東音樂《賽龍奪錦》發源地。全鎮保留大片明清時期的<strong>「青磚鑊耳山牆」</strong>與用生蠔殼砌成的<strong>「蠔殼牆」</strong>，沒有過度商業化，傍晚燈籠亮起時極具水鄉靜謐古韻。
+                        始建於南宋、擁有超過 800 年歷史的嶺南名鎮，也是廣東音樂《賽龍奪錦》發源地。全鎮保留大片明清時期的<strong>「青磚鑊耳山牆」</strong>與用生蠔殼砌成的<strong>「蠔殼牆」</strong>，黃昏夕陽灑在青磚古巷、燈籠初亮時極具水鄉詩意。
                     </div>
                     <div class="town-highlights">
                         <strong>必看與必吃：</strong>留耕堂（何氏大宗祠）、三稔廳、文峰塔；古鎮街邊必吃現撞<strong>沙灣薑埋奶（奶品世家）</strong>、魚皮角與水牛奶蛋撻。
@@ -1339,40 +1381,18 @@
                 </div>
             </div>
 
-            <!-- Town 3: Shunde Qinghui Garden & Fisherman's Wharf -->
+            <!-- Town 3: Shunde Fisherman's Wharf Sunset -->
             <div class="town-card">
                 <div class="town-visual">
-                    <span class="town-tag">Day 4 全日｜佛山順德區</span>
-                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="gardenSky" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#0284c7"/>
-                                <stop offset="100%" stop-color="#bae6fd"/>
-                            </linearGradient>
-                        </defs>
-                        <rect width="600" height="190" fill="url(#gardenSky)"/>
-                        <rect y="190" width="600" height="70" fill="#0d9488"/>
-                        <!-- Classical Pavilion -->
-                        <polygon points="140,115 240,70 340,115" fill="#1e293b"/>
-                        <polygon points="160,95 240,60 320,95" fill="#334155"/>
-                        <rect x="175" y="115" width="12" height="75" fill="#991b1b"/>
-                        <rect x="293" y="115" width="12" height="75" fill="#991b1b"/>
-                        <rect x="155" y="182" width="170" height="10" fill="#e2e8f0"/>
-                        <!-- Lighthouse at Fisherman's Wharf -->
-                        <rect x="460" y="75" width="26" height="115" fill="#ffffff"/>
-                        <rect x="460" y="105" width="26" height="22" fill="#2563eb"/>
-                        <rect x="460" y="145" width="26" height="22" fill="#2563eb"/>
-                        <polygon points="455,75 473,52 491,75" fill="#dc2626"/>
-                        <!-- Autumn Ginkgo Tree -->
-                        <circle cx="85" cy="135" r="45" fill="#f59e0b" opacity="0.9"/>
-                        <circle cx="115" cy="150" r="35" fill="#fbbf24" opacity="0.9"/>
-                    </svg>
+                    <span class="town-tag">Day 4 日落＆夜晚｜佛山順德區</span>
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="佛山順德・容桂漁人碼頭江畔日落與晚霞" loading="lazy">
+                    <div class="town-visual-caption">🌇 佛山順德・容桂漁人碼頭江畔日落與燈塔晚霞</div>
                 </div>
                 <div class="town-body">
                     <div class="town-title">順德清暉園 ＋ 華蓋路老街 ＋ 容桂漁人碼頭</div>
                     <div class="town-meta">📍 佛山順德大良＆容桂｜地鐵直達大良鐘樓站｜清暉園門票¥15</div>
                     <div class="town-desc">
-                        聯合國認證「世界美食之都」！白天逛明代嶺南四大名園之首<strong>清暉園</strong>與彩色滿洲窗騎樓<strong>華蓋路步行街</strong>；傍晚轉往德勝河畔的<strong>容桂漁人碼頭</strong>，藍白燈塔、巨型文創塗鴉牆與露天河岸夜市超好拍，更是順德河鮮大排檔大本營。
+                        聯合國認證「世界美食之都」！白天逛明代嶺南四大名園之首<strong>清暉園</strong>與彩色滿洲窗騎樓<strong>華蓋路步行街</strong>；傍晚趕在日落前抵達德勝河畔的<strong>容桂漁人碼頭</strong>，看橘紅晚霞映照藍白燈塔與江畔貨櫃夜市，浪漫度爆表。
                     </div>
                     <div class="town-highlights">
                         <strong>必看與必吃：</strong>清暉園船廳與八表來香亭、民信老鋪雙皮奶、細妹五香牛雜、漁人碼頭燈塔日落與順德桑拿海鮮。
@@ -1380,41 +1400,18 @@
                 </div>
             </div>
 
-            <!-- Town 4: Zhongshan Sunwen West Road -->
+            <!-- Town 4: Zhongshan Sunwen West Road Night -->
             <div class="town-card">
                 <div class="town-visual">
-                    <span class="town-tag">Day 4 備選｜中山石岐區</span>
-                    <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="zsSky" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#f97316"/>
-                                <stop offset="100%" stop-color="#fef08a"/>
-                            </linearGradient>
-                        </defs>
-                        <rect width="600" height="260" fill="url(#zsSky)"/>
-                        <!-- Nanyang Pastel Arcade Buildings -->
-                        <rect x="45" y="75" width="135" height="145" fill="#fbcfe8" rx="4"/>
-                        <path d="M45,75 Q112,35 180,75 Z" fill="#f472b6"/>
-                        <rect x="65" y="100" width="26" height="42" fill="#1e3a8a" rx="12"/>
-                        <rect x="130" y="100" width="26" height="42" fill="#1e3a8a" rx="12"/>
-
-                        <rect x="195" y="85" width="140" height="135" fill="#bae6fd" rx="4"/>
-                        <rect x="215" y="110" width="28" height="40" fill="#1e3a8a" rx="4"/>
-                        <rect x="285" y="110" width="28" height="40" fill="#1e3a8a" rx="4"/>
-
-                        <!-- Ferris Wheel -->
-                        <circle cx="475" cy="125" r="65" fill="none" stroke="#ffffff" stroke-width="5"/>
-                        <circle cx="475" cy="125" r="45" fill="none" stroke="#fef3c7" stroke-width="2"/>
-                        <line x1="475" y1="125" x2="435" y2="220" stroke="#ffffff" stroke-width="5"/>
-                        <line x1="475" y1="125" x2="515" y2="220" stroke="#ffffff" stroke-width="5"/>
-                        <rect y="215" width="600" height="45" fill="#334155"/>
-                    </svg>
+                    <span class="town-tag">Day 4 備選夜景｜中山石岐區</span>
+                    <img src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?auto=format&fit=crop&w=1000&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="中山石岐・孫文西路南洋騎樓霓虹夜景" loading="lazy">
+                    <div class="town-visual-caption">🏮 中山石岐・孫文西路南洋騎樓霓虹夜景</div>
                 </div>
                 <div class="town-body">
                     <div class="town-title">中山孫文西路步行街 ＋ 岐江公園摩天輪夜市</div>
                     <div class="town-meta">📍 中山市石岐區｜廣州南站城軌30分鐘直達｜免費開放</div>
                     <div class="town-desc">
-                        百年歷史的南洋華僑騎樓商業街，整排粉紅、粉藍與鵝黃色歐陸雕花騎樓保存極佳，充滿濃濃民國風情。步行街盡頭連接岐江河畔與興中廣場幻彩摩天輪，晚上江風徐徐、夜市攤位熱鬧非凡。
+                        百年歷史的南洋華僑騎樓商業街，整排歐陸雕花騎樓在華燈初上時流光溢彩，充滿復古民國電影感。步行街盡頭連接岐江河畔與興中廣場幻彩摩天輪，晚上江風徐徐、夜市攤位熱鬧非凡。
                     </div>
                     <div class="town-highlights">
                         <strong>必看與必吃：</strong>思豪大酒店舊址、香山商業文化博物館、現烤爆汁<strong>石岐乳鴿</strong>、咀香園杏仁餅、東升脆肉鯇大排檔。
@@ -1424,70 +1421,86 @@
         </div>
 
         <!-- ===================================================================== -->
-        <!-- APPENDIX 2: FAMOUS RESTAURANTS & DAI PAI DONG GUIDE (名店與大排檔總整理) -->
+        <!-- APPENDIX 2: FAMOUS RESTAURANTS & DAI PAI DONG WITH SIGNATURE DISHES   -->
         <!-- ===================================================================== -->
-        <h2 class="section-title">附錄二｜廣州排隊早茶名店 ＆ 海鮮大排檔完整清單</h2>
+        <h2 class="section-title">附錄二｜廣州排隊早茶名店 ＆ 海鮮大排檔圖文總覽</h2>
 
         <!-- Category A: Dim Sum Queue Legends -->
         <div class="appendix-category-title">🍵 一、廣州老字號排隊早茶名店（Day 4 / Day 5 早午餐首選）</div>
         <div class="restaurant-grid">
             <div class="rest-card">
-                <div>
-                    <div class="rest-header dimsum">
-                        <div class="rest-name">1. 南園酒家（海珠區百年園林名店）</div>
-                        <div class="rest-sub">廣州四大園林酒家之一｜海珠區前進路142號</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="南園酒家・晶瑩鮮蝦餃皇" loading="lazy">
+                    <div class="rest-dish-badge">🥢 招牌必點｜晶瑩筍尖鮮蝦餃皇</div>
+                </div>
+                <div class="rest-header dimsum">
+                    <div class="rest-name">1. 南園酒家（海珠區百年園林名店）</div>
+                    <div class="rest-sub">廣州四大園林酒家之一｜海珠區前進路142號</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>海珠區曉港站 A 出口步行 6 分鐘（住海珠區超近！）</div>
                         <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>當地阿公阿嬤與遊客天天大排長龍，建議 <strong>08:30 前到場</strong>或先在微信「美味不用等」線上取號；坐園林亭台水榭旁吃早茶氣氛無敵。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥80–110</div>
-                        <div class="rest-must-eat">🥢 必點招牌：南園蝦餃皇、至尊燒賣皇、潮州粉果、香麻炸軟棗、陳皮牛肉球。</div>
                     </div>
+                    <div class="rest-must-eat">🥢 必點招牌：南園蝦餃皇、至尊燒賣皇、潮州粉果、香麻炸軟棗、陳皮牛肉球。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header dimsum">
-                        <div class="rest-name">2. 利苑酒家（粵菜黃埔軍校・米其林星級）</div>
-                        <div class="rest-sub">廣州排隊天花板｜越秀宜安廣場店 / 天河珠江新城店</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="利苑酒家・招牌冰燒三層肉" loading="lazy">
+                    <div class="rest-dish-badge">🔥 每日限量｜招牌冰燒三層肉＆楊枝甘露</div>
+                </div>
+                <div class="rest-header dimsum">
+                    <div class="rest-name">2. 利苑酒家（粵菜黃埔軍校・米其林星級）</div>
+                    <div class="rest-sub">廣州排隊天花板｜越秀宜安廣場店 / 天河珠江新城店</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>地鐵 5 號線「淘金站」或「獵德站」步行 5 分鐘</div>
                         <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>午市早茶 11:30 開門前門口就排滿人，強烈建議<strong>提前 1–2 天電話訂位</strong>或 11:00 到現場登記第一輪；環境與服務極具水準。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥130–180</div>
-                        <div class="rest-must-eat">🥢 必點招牌：招牌冰燒三層肉（每日限量必搶）、楊枝甘露（發源地）、龍蝦湯泡飯、原隻鮮蝦餃。</div>
                     </div>
+                    <div class="rest-must-eat">🥢 必點招牌：招牌冰燒三層肉（每日限量必搶）、楊枝甘露（發源地）、龍蝦湯泡飯、原隻鮮蝦餃。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header dimsum">
-                        <div class="rest-name">3. 廣州酒家（文昌總店・食在廣州第一家）</div>
-                        <div class="rest-sub">始創1935年中華老字號｜荔灣區文昌南路2號</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="廣州酒家・傳統名菜文昌雞" loading="lazy">
+                    <div class="rest-dish-badge">🐔 鎮店名菜｜皮爽肉滑廣州文昌雞</div>
+                </div>
+                <div class="rest-header dimsum">
+                    <div class="rest-name">3. 廣州酒家（文昌總店・食在廣州第一家）</div>
+                    <div class="rest-sub">始創1935年中華老字號｜荔灣區文昌南路2號</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>地鐵 1 號線「長壽路站」步行 8 分鐘（靠近上下九＆永慶坊）</div>
                         <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>週末早上 09:00 後通常需等位 30–60 分鐘，樓下設有大型手信餅屋，吃完可直接買雞仔餅、核桃酥當伴手禮。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥85–120</div>
-                        <div class="rest-must-eat">🥢 必點招牌：文昌雞（招牌名菜）、金牌蝦餃皇、百合醬蒸鳳爪、荔灣艇仔粥、流沙包。</div>
                     </div>
+                    <div class="rest-must-eat">🥢 必點招牌：文昌雞（招牌名菜）、金牌蝦餃皇、百合醬蒸鳳爪、荔灣艇仔粥、流沙包。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header dimsum">
-                        <div class="rest-name">4. 鵝公村（海珠區超人氣園林茶樓）</div>
-                        <div class="rest-sub">海珠在地人私藏排隊名店｜海珠區新滘西路556號</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="鵝公村・秘製荔枝木燒鵝" loading="lazy">
+                    <div class="rest-dish-badge">🍖 鎮店必搶｜秘製荔枝木脆皮燒鵝</div>
+                </div>
+                <div class="rest-header dimsum">
+                    <div class="rest-name">4. 鵝公村（海珠區超人氣園林茶樓）</div>
+                    <div class="rest-sub">海珠在地人私藏排隊名店｜海珠區新滘西路556號</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">交通位置：</span>海珠區南洲／瀝滘一帶，海珠區飯店打車約 10–15 分鐘（順路往南去順德！）</div>
                         <div class="rest-info-row"><span class="rest-info-label">排隊攻略：</span>超大嶺南水鄉園區，每逢週末早茶與午市座無虛席，帶小孩來還能看池塘錦鯉。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥75–105</div>
-                        <div class="rest-must-eat">🥢 必點招牌：秘製荔枝木燒鵝（必點）、鵝公村蝦餃皇、金沙紅米腸、薑撞奶。</div>
                     </div>
+                    <div class="rest-must-eat">🥢 必點招牌：秘製荔枝木燒鵝（必點）、鵝公村蝦餃皇、金沙紅米腸、薑撞奶。</div>
                 </div>
             </div>
         </div>
@@ -1496,58 +1509,74 @@
         <div class="appendix-category-title">🦞 二、廣州生猛海鮮大排檔名店（Day 1 / Day 2 / Day 3 晚餐精選）</div>
         <div class="restaurant-grid">
             <div class="rest-card">
-                <div>
-                    <div class="rest-header seafood">
-                        <div class="rest-name">1. 黃沙水產市場＋盛港灣海鮮食府</div>
-                        <div class="rest-sub">Day 2 晚餐首選｜荔灣區黃沙大道（永慶坊旁）</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="黃沙水產盛港灣・避風塘炒蟹" loading="lazy">
+                    <div class="rest-dish-badge">🦀 現挑現炒｜避風塘炒蟹＆生猛海鮮</div>
+                </div>
+                <div class="rest-header seafood">
+                    <div class="rest-name">1. 黃沙水產市場＋盛港灣海鮮食府</div>
+                    <div class="rest-sub">Day 2 晚餐首選｜荔灣區黃沙大道（永慶坊旁）</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">美食玩法：</span>廣州最大海鮮批發集散地！先在一樓市場親手挑帝王蟹、波士頓龍蝦、大瀨尿蝦、蟶子王與鮑魚，再上樓由「盛港灣」或「金沙港」大排檔現場快炒清蒸，鑊氣與新鮮度滿分。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥130–180（視所選高檔海鮮而定）</div>
-                        <div class="rest-must-eat">🦐 必點料理：避風塘炒蟹、椒鹽富貴蝦（瀨尿蝦）、蒜蓉粉絲蒸蟶子王、薑蔥炒花甲。</div>
                     </div>
+                    <div class="rest-must-eat">🦐 必點料理：避風塘炒蟹、椒鹽富貴蝦（瀨尿蝦）、蒜蓉粉絲蒸蟶子王、薑蔥炒花甲。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header seafood">
-                        <div class="rest-name">2. 等我餸上門（西關懷舊大排檔名店）</div>
-                        <div class="rest-sub">Day 2 晚餐備選｜荔灣區荔灣路97號動感小西關</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="等我餸上門・蒜蓉粉絲蒸扇貝" loading="lazy">
+                    <div class="rest-dish-badge">🔥 猛火鑊氣｜蒜蓉粉絲蒸扇貝＆廣式小炒</div>
+                </div>
+                <div class="rest-header seafood">
+                    <div class="rest-name">2. 等我餸上門（西關懷舊大排檔名店）</div>
+                    <div class="rest-sub">Day 2 晚餐備選｜荔灣區荔灣路97號動感小西關</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>不想自己去市場挑海鮮、想直接坐下來點菜的首選！復古西關大排檔裝潢，晚市天天爆滿，主打猛火現炒海鮮與廣式啫啫煲，口味地道不踩雷。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥85–115</div>
-                        <div class="rest-must-eat">🦐 必點料理：招牌沙薑豬手、啫啫生腸煲、椒鹽九肚魚、避風塘炒大蝦、豉油王鵝腸。</div>
                     </div>
+                    <div class="rest-must-eat">🦐 必點料理：招牌沙薑豬手、啫啫生腸煲、椒鹽九肚魚、避風塘炒大蝦、豉油王鵝腸。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header seafood">
-                        <div class="rest-name">3. 南浦十八湧大排檔（番禺水鄉海鮮）</div>
-                        <div class="rest-sub">Day 3 晚餐｜番禺區南浦碧桂大道（沙灣古鎮順路）</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="南浦十八湧大排檔・白灼麻蝦" loading="lazy">
+                    <div class="rest-dish-badge">🦐 水鄉現撈｜白灼麻蝦＆珠江口河鮮</div>
+                </div>
+                <div class="rest-header seafood">
+                    <div class="rest-name">3. 南浦十八湧大排檔（番禺水鄉海鮮）</div>
+                    <div class="rest-sub">Day 3 晚餐｜番禺區南浦碧桂大道（沙灣古鎮順路）</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>逛完沙灣古鎮往回開順路必吃！主打珠江出海口「南沙十八湧」鹹淡水交界特色河鮮與海產，魚蝦肉質格外鮮甜，露天大排檔氛圍熱鬧。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥95–130</div>
-                        <div class="rest-must-eat">🦐 必點料理：清蒸黃腳立、白灼麻蝦、薑蔥炒肉蟹、瓦罉焗魚頭、海鮮砂鍋粥。</div>
                     </div>
+                    <div class="rest-must-eat">🦐 必點料理：清蒸黃腳立、白灼麻蝦、薑蔥炒肉蟹、瓦罉焗魚頭、海鮮砂鍋粥。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header seafood">
-                        <div class="rest-name">4. 椰林海鮮碼頭（花都旗艦店）</div>
-                        <div class="rest-sub">Day 1 晚餐｜花都區雅瑤中路（距花間堂約12分鐘）</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1534766555764-ce878a5e3a2b?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="椰林海鮮碼頭・廣式清蒸老虎斑" loading="lazy">
+                    <div class="rest-dish-badge">🐟 明檔現撈｜廣式清蒸生猛海斑</div>
+                </div>
+                <div class="rest-header seafood">
+                    <div class="rest-name">4. 椰林海鮮碼頭（花都旗艦店）</div>
+                    <div class="rest-sub">Day 1 晚餐｜花都區雅瑤中路（距花間堂約12分鐘）</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>第一晚剛下飛機住花間堂的最佳晚餐選擇，大型明檔海鮮池現點現撈、價格透明，環境寬敞適合多人聚餐。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥100–140</div>
-                        <div class="rest-must-eat">🦐 必點料理：清蒸老虎斑、白灼基圍蝦、蒜蓉蒸帶子、上湯桑葉。</div>
                     </div>
+                    <div class="rest-must-eat">🦐 必點料理：清蒸老虎斑、白灼基圍蝦、蒜蓉蒸帶子、上湯桑葉。</div>
                 </div>
             </div>
         </div>
@@ -1556,44 +1585,56 @@
         <div class="appendix-category-title">🐟 三、順德 ＆ 中山大排檔與老字號名店（Day 4 一日遊精選）</div>
         <div class="restaurant-grid">
             <div class="rest-card">
-                <div>
-                    <div class="rest-header shunde">
-                        <div class="rest-name">1. 順德容桂漁人碼頭・大排檔與桑拿菜</div>
-                        <div class="rest-sub">推薦：太艮堡毋米粥 / 順德公豬肚雞 / 江畔海鮮排檔</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="順德容桂漁人碼頭・順德無骨魚生與桑拿海鮮" loading="lazy">
+                    <div class="rest-dish-badge">🐟 世界美食之都｜順德無骨魚生＆桑拿海鮮</div>
+                </div>
+                <div class="rest-header shunde">
+                    <div class="rest-name">1. 順德容桂漁人碼頭・大排檔與桑拿菜</div>
+                    <div class="rest-sub">推薦：太艮堡毋米粥 / 順德公豬肚雞 / 江畔海鮮排檔</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>順德人吃海鮮講究「原汁原味」！在容桂漁人碼頭江邊看完日落與夜市後，必試順德獨有的<strong>「桑拿海鮮」</strong>（用米湯蒸汽現蒸無骨魚片、鮮蝦與貝類，鮮甜鎖水）或「毋米粥火鍋」。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥100–145</div>
-                        <div class="rest-must-eat">🐟 必點料理：順德無骨魚生（一魚多吃）、桑拿鮮鮑魚與大蝦、煎焗魚嘴、倫教糕。</div>
                     </div>
+                    <div class="rest-must-eat">🐟 必點料理：順德無骨魚生（一魚多吃）、桑拿鮮鮑魚與大蝦、煎焗魚嘴、倫教糕。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header shunde">
-                        <div class="rest-name">2. 順德大良華蓋路・百年甜品小吃名店</div>
-                        <div class="rest-sub">推薦：民信老鋪（總店） / 細妹五香牛雜 / 韋記牛雜湯</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="順德大良華蓋路・民信老鋪雙皮奶" loading="lazy">
+                    <div class="rest-dish-badge">🍮 非遺老字號｜順德原味雙皮奶＆炸牛奶</div>
+                </div>
+                <div class="rest-header shunde">
+                    <div class="rest-name">2. 順德大良華蓋路・百年甜品小吃名店</div>
+                    <div class="rest-sub">推薦：民信老鋪（總店） / 細妹五香牛雜 / 韋記牛雜湯</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>清暉園旁步行 3 分鐘，民信老鋪是雙皮奶非遺老字號，奶皮厚實香濃；旁邊細妹牛雜經常排長隊，蘿蔔與牛腩燉得極入味。</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥35–60</div>
-                        <div class="rest-must-eat">🍮 必點小吃：原味雙皮奶、炸牛奶拼盤、薑撞奶、五香牛雜煲。</div>
                     </div>
+                    <div class="rest-must-eat">🍮 必點小吃：原味雙皮奶、炸牛奶拼盤、薑撞奶、五香牛雜煲。</div>
                 </div>
             </div>
 
             <div class="rest-card">
-                <div>
-                    <div class="rest-header shunde">
-                        <div class="rest-name">3. 中山石岐佬 ＆ 東升脆肉鯇大排檔</div>
-                        <div class="rest-sub">備選中山路線名店｜石岐區康華路 / 小欖東升鎮</div>
-                    </div>
-                    <div class="rest-body">
+                <div class="rest-photo-box">
+                    <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%231e3a8a'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23g)'/%3E%3C/svg%3E';" alt="中山石岐佬・爆汁石岐紅燒乳鴿" loading="lazy">
+                    <div class="rest-dish-badge">🕊️ 中山一絕｜皮脆爆汁石岐紅燒乳鴿</div>
+                </div>
+                <div class="rest-header shunde">
+                    <div class="rest-name">3. 中山石岐佬 ＆ 東升脆肉鯇大排檔</div>
+                    <div class="rest-sub">備選中山路線名店｜石岐區康華路 / 小欖東升鎮</div>
+                </div>
+                <div class="rest-body">
+                    <div>
                         <div class="rest-info-row"><span class="rest-info-label">特色亮點：</span>「石岐佬」是中山排隊人氣王，乳鴿皮脆肉嫩會爆汁；晚上到東升鎮吃「脆肉鯇（吃蠶豆長大的爽脆草魚）」，魚片在清水火鍋燙 12 秒就熟，口感像鮑魚般脆彈！</div>
                         <div class="rest-info-row"><span class="rest-info-label">人均消費：</span>約 ¥95–130</div>
-                        <div class="rest-must-eat">🕊️ 必點料理：石岐紅燒乳鴿、菠蘿包（比臉還大）、脆肉鯇魚片火鍋、椒鹽脆魚腩。</div>
                     </div>
+                    <div class="rest-must-eat">🕊️ 必點料理：石岐紅燒乳鴿、菠蘿包（比臉還大）、脆肉鯇魚片火鍋、椒鹽脆魚腩。</div>
                 </div>
             </div>
         </div>
